@@ -1,7 +1,7 @@
 -- Cpu.vhd
 -- 情報電子工学総合実験(CE1)用 TeC の CPU 部分 !!! ひな形 !!!
 --
--- (c)2014 - 2019 by Dept. of Computer Science and Electronic Engineering,
+-- (c)2014 - 2024 by Dept. of Computer Science and Electronic Engineering,
 --            Tokuyama College of Technology, JAPAN
 
 library ieee;
@@ -97,7 +97,7 @@ begin
     if (Reset='1') then
       FLG <= "000";
     elsif (Clk'event and Clk='1') then
-      if (DbgWe='1' and DbgAin="101") then
+      if (DbgWe='1' and DbgAin="110") then
         FLG <= DbgDin(2 downto 0);
       end if;
     end if;
@@ -108,6 +108,7 @@ begin
              G1 when DbgAin="001" else
              G2 when DbgAin="010" else
              SP when DbgAin="011" else
-             PC;
+             PC when DbgAin="100" else
+             "00000" & FLG;
 
 end Behavioral;

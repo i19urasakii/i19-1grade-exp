@@ -1,7 +1,7 @@
 -- Console.vhd
 -- 情報電子工学総合実験(CE1)用 TeC のコンソールパネル部分
 --
--- (c)2014 - 2019 by Dept. of Computer Science and Electronic Engineering,
+-- (c)2014 - 2024 by Dept. of Computer Science and Electronic Engineering,
 --            Tokuyama College of Technology, JAPAN
 
 library ieee;
@@ -83,6 +83,7 @@ architecture Behavioral of Console is
   signal PosDec : std_logic_vector(5 downto 0);  --   位置をデコードしたもの
   signal G0     : std_logic;                     -- G0 選択中
   signal Mm     : std_logic;                     -- MM 選択中
+  signal Flg    : std_logic;                     -- FLAG 選択中
   signal Run    : std_logic;                     -- CPU 実行/停止
   signal Rst    : std_logic;                     -- 内部配線用
   signal WeM    : std_logic;                     -- 内部配線用
@@ -119,7 +120,7 @@ begin
           BtnDly2 <= "000000000";                --    一旦，ボタンを戻す
         end if;
         BtnDbnc <= (not BtnDly2) and BtnDly1 and
-                   ('1' & not G0 & not Mm        -- (Rst)  (<-)   (->)
+                   ('1' & not G0 & not Flg       -- (Rst)  (<-)   (->)
                     & not Run & Run & Mm         -- (Run)  (Stop) (SetA)
                     & Mm  & Mm  & not Run);      -- (IncA) (DecA) (Write)
       else
@@ -193,8 +194,9 @@ begin
   DataLed <= (not DinMem) when Mm='1' else (not DinCpu);
 
 -- ロータリースイッチの位置デコーダ
-  G0    <= PosDec(5);                            -- G0 選択中
-  Mm    <= PosDec(0);                            -- MM 選択中
+  G0    <= PosDec(5) and not PosDec(1);          -- G0 選択中
+  Mm    <= PosDec(0) and not PosDec(1);          -- MM 選択中
+  Flg   <= PosDec(0) and PosDec(1);              -- FLAG 選択中
   G0Led <= not PosDec(5);
   G1Led <= not PosDec(4);
   G2Led <= not PosDec(3);
@@ -207,7 +209,8 @@ begin
     "001000" when "010" ,                        -- G2
     "000100" when "011" ,                        -- SP
     "000010" when "100" ,                        -- PC
-    "000001" when others;                        -- MM
+    "000001" when "101" ,                        -- MM
+    "111111" when others;                        -- FLAG
 
 -- ロータリースイッチ位置を切換える
   process(Clk, LckDly)
