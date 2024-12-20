@@ -23,13 +23,14 @@ entity Sequencer is
          DRLd  : out  STD_LOGIC;
          FLLd : out  STD_LOGIC;
          GRLd  : out  STD_LOGIC;
-         AddrADD    : out  STD_LOGIC;
-         DataALU    : out  STD_LOGIC_VECTOR (2 downto 0);
          SPop  : out  STD_LOGIC;
-         MUX0Ld: out  STD_LOGIC_VECTOR (1 downto 0);
-         MUX1Ld: out  STD_LOGIC;
-         MUX2Ld: out  STD_LOGIC_VECTOR (2 downto 0);
-         MUX5Ld: out  STD_LOGIC_VECTOR (1 downto 0);
+
+         GRsel : out  STD_LOGIC_vector (1 downto 0);  -- レジスタの選択信号
+         PCSel : out  STD_LOGIC_vector (1 downto 0);  -- MUX0 : プログラムカウンタの選択信号
+         DoutSel: out  STD_LOGIC;                     -- MUX1 : データバス入力の選択信号
+         AddrSel: out  STD_LOGIC_vector (2 downto 0); -- MUX2 : アドレスバスの選択信号
+         SPsel  : out  STD_LOGIC;                     -- MUX5 : スタックポインタの選択信号
+
 
          -- CPU外部へ出力
          We    : out  STD_LOGIC;
@@ -80,13 +81,13 @@ begin
                        DecSt(13)='1' else -- HALT
            "0001" when DecSt(0)='1' and Stop='0'  else   -- Fetch
            "0010" when DecSt(1)='1' and Type1='1' else   -- LD/ADD/.../XOR
-           "0011" when DecSt(2)='1' or Rx="01" or Rx="10" else                 -- LD/ADD/.../XOR
-           "0100" when DecSt(1)='1' and OP="0010" else   -- ST
-           "0101" when DecSt(1)='1' and OP="1010" else   -- JMP/JZ/JC/JM
-           "0110" when DecSt(1)='1' and OP="1011" else   -- CALL
-           "0111" when DecSt(6)='1'               else
-           "1000" when DecSt(1)='1' and OP="1101" and Rx="00" else -- PUSH
-           "1001" when DecSt(8)='1'               else
+           "0011" when DecSt(2)='1' or Rx="01" or Rx="10" else  -- LD/ADD/.../XOR
+           "0100" when DecSt(1)='1' and OP="1001" else   -- SHIFT
+           "0101" when DecSt(1)='1' and OP="0010" else   -- ST
+           "0110" when DecSt(1)='1' and OP="1010" else   -- JMP,JZ,JC
+           "0111" when DecSt(1)='1' and OP="1011" else   -- CALL
+           "1000" when DecSt(7)='1' else -- CALL
+           "1001" when DecSt(1)='1' and OP="1101" and Rx="00" else -- PUSH
            "1010" when DecSt(1)='1' and OP="1101" and Rx="10" else -- POP
            "1011" when DecSt(10)='1'                          else
            "1100" when DecSt(1)='1' and OP="1110" else   -- RET
