@@ -22,7 +22,6 @@ entity Sequencer is
          IRLd  : out  STD_LOGIC;
          DRLd  : out  STD_LOGIC;
          FLLd : out  STD_LOGIC;
-         GRLd  : out  STD_LOGIC;
          SPop  : out  STD_LOGIC;
 
          GRsel : out  STD_LOGIC_vector (1 downto 0);  -- レジスタの選択信号
@@ -97,7 +96,7 @@ begin
   begin
     if (Reset='1') then
       Stat <= "0000";
-    elsif (Clk'event and Clk='1') then
+    elsif (Clk'event and Clk='1') then --　クロックが立ち上がりエッジに変化した時
       Stat <= NxtSt;
     end if;
   end process;
@@ -112,11 +111,28 @@ begin
   --        JMP     JZ and Z Flag       JC and C Flag       JM and S Flag
   JmpCnd <= Jmp or (Jz and Flag(0)) or (Jc and Flag(2)) or (Jm and Flag(1));
   
-  IrLd  <= DecSt(0);
-  DrLd  <= DecSt(1) or (DecSt(2) and not Immd) or DecSt(10);
-  FlgLd <= '1' when DecSt(3)='1' and OP/="0001" else '0';    -- OP /=LD
-  GrLd  <= '1' when (DecSt(3)='1' and OP/="0101") or         -- OP /=CMP
-           DecSt(11)='1' else '0';
+  IRLd  <= '1' when DecSt(0)='1' else '0';  --
+  DRLd  <= '1' when DecSt(1)='1' or DecSt(2)='1'or DecSt(10)='1' ;
+  FLLd <= '1' when DecSt(3)='1' and OP/="0001" and DecSt(4)='1' else '0';    -- OP /=LD
+  
+  GRsel <= '00' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='00' else      -- G0
+           '01' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='01' else -- G1
+           '10' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='10' else -- G2
+           '11' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='11' -- SP 汎用レジスタ
+           '11' when (DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1') and SPsel='1';    -- SP スタック用
+
+           -- DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1'
+　PCSel <= '00' when (DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and (Rx="01" or Rx="10")) or DecSt(7)='1') else  -- AddrADDの出力：インデクスドモード
+           '01' when ((DecSt(6)='1' and (Jz or Jc or Jm) ) or DecSt(8)='1') else -- Dinの出力：JMP成立時, CALL
+           '10' when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(Jz or Jc or Jm)));
+
+  DoutSel <= '0' when DecSt(7)='1' else
+             '1' when DecSt(5)='1' or DecSt(9)='1';
+
+  AddrSel <= '000' when 0 else
+             '001' when DecSt(0)='1' or DecSt(1)='1'
+
+
   SpP1  <= DecSt(10) or DecSt(12);
   SpM1  <= DecSt(6)  or DecSt(8);
   PcP1  <= (DecSt(0) and not Stop) or
