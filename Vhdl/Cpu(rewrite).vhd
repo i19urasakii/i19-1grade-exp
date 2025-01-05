@@ -157,7 +157,7 @@ begin
 
 
 -- 制御部
--- 制御部を構成するモジュールで、クロックやリセット信号を基に各制御信号を生成。
+-- 制御部を構成するモジュールで、クロックやリセット信号を基に各制御信号を生成
   seq1: Sequencer Port map (Clk, Reset, OP, Rd, Rx, FLG, Stop,
                             IRLd, DRLd, FLLd, PCLd, SPop, GRSel, PCSel, DoutSel, AddrSel, SPSel,
                             Ma, Md, We, Halt);
