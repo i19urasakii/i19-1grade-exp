@@ -22,6 +22,8 @@ entity Sequencer is
          IRLd  : out  STD_LOGIC;
          DRLd  : out  STD_LOGIC;
          FLLd : out  STD_LOGIC;
+         PCLD  : out  STD_LOGIC;
+
          SPop  : out  STD_LOGIC;
 
          GRsel : out  STD_LOGIC_vector (1 downto 0);  -- レジスタの選択信号
@@ -79,8 +81,8 @@ begin
                        DecSt(11)='1' or DecSt(12)='1' or -- POP,RET
                        DecSt(13)='1' else -- HALT
            "0001" when DecSt(0)='1' and Stop='0'  else   -- Fetch
-           "0010" when DecSt(1)='1' and Type1='1' else   -- LD/ADD/.../XOR
-           "0011" when DecSt(2)='1' or Rx="01" or Rx="10" else  -- LD/ADD/.../XOR
+           "0010" when DecSt(1)='1' and Type1='1' and Immd='0' else   -- LD/ADD/.../XOR (mode:ダイレクト,インデクスド)
+           "0011" when (DecSt(1)='1' and Type1='1' and Immd='1') or DecSt(2) else  -- LD/ADD/.../XOR (mode:全部)  判断式Rx="01" or Rx="10"でも？
            "0100" when DecSt(1)='1' and OP="1001" else   -- SHIFT
            "0101" when DecSt(1)='1' and OP="0010" else   -- ST
            "0110" when DecSt(1)='1' and OP="1010" else   -- JMP,JZ,JC
@@ -112,8 +114,10 @@ begin
   JmpCnd <= Jmp or (Jz and Flag(0)) or (Jc and Flag(2)) or (Jm and Flag(1));
   
   IRLd  <= '1' when DecSt(0)='1' else '0';  --
-  DRLd  <= '1' when DecSt(1)='1' or DecSt(2)='1'or DecSt(10)='1' ;
+  DRLd  <= '1' when DecSt(1)='1' or DecSt(2)='1'or DecSt(10)='1' else '0';  -- LD/ST/POP
   FLLd <= '1' when DecSt(3)='1' and OP/="0001" and DecSt(4)='1' else '0';    -- OP /=LD
+  PCLd <= '1' when (DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or DecSt(6)='1'  
+                or DecSt(8)='1' DecSt(12)='1' else '0';  -- JMP/ST/CALL/PUSH/POP/RET
   
   GRsel <= '00' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='00' else      -- G0
            '01' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='01' else -- G1
@@ -121,28 +125,22 @@ begin
            '11' when (DecSt(3)='1' or DecSt(4)='1' or DecSt(11)='1')and Rd='11' -- SP 汎用レジスタ
            '11' when (DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1') and SPsel='1';    -- SP スタック用
 
+  -- Mux0: プログラムカウンタの選択信号
            -- DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1'
-　PCSel <= '00' when (DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and (Rx="01" or Rx="10")) or DecSt(7)='1') else  -- AddrADDの出力：インデクスドモード
-           '01' when ((DecSt(6)='1' and (Jz or Jc or Jm) ) or DecSt(8)='1') else -- Dinの出力：JMP成立時, CALL
+  PCSel <= '00' when (DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and (Rx="01" or Rx="10")) or DecSt(7)='1') else  -- AddrADDの出力：インデクスドモード
+           '01' when ((DecSt(6)='1' and (Jz or Jc or Jm) ) or DecSt(8)='1') else                                     -- Dinの出力：JMP成立時, CALL
            '10' when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(Jz or Jc or Jm)));
-
+  -- Mux1: データバス入力の選択信号
   DoutSel <= '0' when DecSt(7)='1' else
              '1' when DecSt(5)='1' or DecSt(9)='1';
-
+  -- Mux2: アドレスバスの選択信号
   AddrSel <= '000' when 0 else
              '001' when DecSt(0)='1' or DecSt(1)='1'
+  -- Mux5: スタックポインタの選択信号
+  SPSel <= '1' when DecSt(7)='1' or DecSt(9)='1'  else
+           '0' when DecSt(10)='1' or DecSt(12)='1';
 
 
-  SpP1  <= DecSt(10) or DecSt(12);
-  SpM1  <= DecSt(6)  or DecSt(8);
-  PcP1  <= (DecSt(0) and not Stop) or
-           DecSt(2) or DecSt(4) or DecSt(5) or DecSt(6);
-  PcJmp <= (DecSt(5) and JmpCnd) or DecSt(7);
-  PcRet <= DecSt(12);
-  Ma    <= "00" when DecSt(0)='1' or DecSt(1)='1' else       -- "00"=PC
-           "01" when DecSt(2)='1' or DecSt(4)='1' else       -- "01"=EA
-           "10";                                             -- "10"=SP
-  Md    <= not DecSt(7);
   We    <= DecSt(4)  or DecSt(7) or DecSt(9);
   Halt  <= DecSt(13);
 
