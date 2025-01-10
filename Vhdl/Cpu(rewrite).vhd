@@ -262,7 +262,7 @@ begin
     if (Reset='1') then
       G0  <= "00000000";         -- 全レジスタを0にリセット
       G1  <= "00000000";
-      G2  <= "00000000";
+      G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
       if (GRSel = True) then

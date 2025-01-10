@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="17" version="2.0">
+<workbenchAdvisor/>
+<window height="712" width="1024" x="0" y="27">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout locked="0">
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="102" y="28"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="118" y="28"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="102" y="28"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="66" y="28"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="66" y="28"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="182" y="28"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page focus="true" label="ワークスペース - Java">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Asm.java" partName="Asm.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/Asm.java" title="Asm.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Asm.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Asm.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AsmException.java" partName="AsmException.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java" title="AsmException.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Err.java" partName="Err.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/Err.java" title="Err.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Err.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Err.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InstTbl.java" partName="InstTbl.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTbl.java" title="InstTbl.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTbl.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTbl.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InstTblEntry.java" partName="InstTblEntry.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTblEntry.java" title="InstTblEntry.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTblEntry.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTblEntry.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Lexer.java" partName="Lexer.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java" title="Lexer.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ListFormatter.java" partName="ListFormatter.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java" title="ListFormatter.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M1.java" partName="M1.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java" title="M1.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M2.java" partName="M2.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java" title="M2.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M3.java" partName="M3.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java" title="M3.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M4.java" partName="M4.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java" title="M4.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M5.java" partName="M5.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java" title="M5.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M6.java" partName="M6.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java" title="M6.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="P1.java" partName="P1.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java" title="P1.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RsvWords.java" partName="RsvWords.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java" title="RsvWords.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymTbl.java" partName="SymTbl.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java" title="SymTbl.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SyntaxAnalyzer.java" partName="SyntaxAnalyzer.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java" title="SyntaxAnalyzer.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tasm6.java" partName="Tasm6.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java" title="Tasm6.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Token.java" partName="Token.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java" title="Token.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TokenType.java" partName="TokenType.java" path="/home/sigemura/TeC/TeC6c/workspace/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java" title="TokenType.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions"/>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState columnWidth0="19" columnWidth1="19" columnWidth2="294" columnWidth3="110" columnWidth4="220" columnWidth5="87" horizontalPosition="0" verticalPosition="0">
+<selection/>
+</viewState>
+</view>
+<view id="org.eclipse.jdt.ui.MembersView" partName="Members">
+<viewState hidefields="false" hidenonpublic="false" hidestatic="false" org.eclipse.jdt.ui.browsing.memberstoeditor="1">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.MembersView.ImportDeclarationFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+<selectedElements>
+<selectedElement selectedElementPath="=Tasm5/src&lt;jp.ac.tokuyama.pico.tec{Parser.java[Parser~Parser~QBufferedReader;"/>
+</selectedElements>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState org.eclipse.debug.ui.reuse_editor="20"/>
+</view>
+<view id="org.eclipse.jdt.debug.ui.DisplayView" partName="Display">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="ナビゲーター">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>
+<filter element=".*" isEnabled="false"/>
+<filter element="*.class" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/Tasm6"/>
+<element path="/Tasm6/src"/>
+<element path="/Tasm6/src/jp"/>
+<element path="/Tasm6/src/jp/ac"/>
+<element path="/Tasm6/src/jp/ac/tokuyama"/>
+<element path="/Tasm6/src/jp/ac/tokuyama/pico"/>
+<element path="/Tasm6/src/jp/ac/tokuyama/pico/tec6"/>
+</expanded>
+<selection>
+<element path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.jdt.ui.TypesView" partName="Types">
+<viewState org.eclipse.jdt.ui.browsing.typestoeditor="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.TypesView.NonPublicTypeFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.ClassFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.TypesView.InterfaceFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+<selectedElements>
+<selectedElement selectedElementPath="=Tasm5/src&lt;jp.ac.tokuyama.pico.tec{Parser.java[Parser"/>
+</selectedElements>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="コンソール">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.PackagesView" partName="Packages">
+<viewState org.eclipse.jdt.ui.PackagesView.viewState="0" org.eclipse.jdt.ui.browsing.packagestoeditor="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.internal.ui.PackagesView.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackagesView.EmptyInnerPackageFilter" isEnabled="true"/>
+</xmlDefinedFilters>
+</customFilters>
+<selectedElements>
+<selectedElement selectedElementPath="=Tasm5/src&lt;jp.ac.tokuyama.pico.tec"/>
+</selectedElements>
+</viewState>
+</view>
+<view id="org.eclipse.jdt.ui.ProjectsView" partName="Projects">
+<viewState org.eclipse.jdt.ui.browsing.projectstoeditor="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.ProjectsView.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter2" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.ProjectsView.NonSharedProjectsFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+<selectedElements>
+<selectedElement selectedElementPath="=Tasm5/src"/>
+</selectedElements>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
+</views>
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspective editorAreaVisible="1" version="0.016">
+<descriptor class="org.eclipse.ui.internal.ResourcePerspective" id="org.eclipse.ui.resourcePerspective" label="リソース"/>
+<actionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<actionSet id="org.eclipse.search.searchActionSet"/>
+<actionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<actionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<actionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<actionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.BookmarkNavigator"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.externaltools.AntView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.team.cvs.ui.cvsPerspective"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<layout>
+<mainWindow>
+<info folder="true" part="topLeft">
+<folder activePageID="org.eclipse.ui.views.ResourceNavigator">
+<page content="org.eclipse.ui.views.ResourceNavigator" label="ナビゲーター"/>
+<page content="org.eclipse.ui.views.BookmarkNavigator" label="ブックマーク"/>
+<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="CVS リポジトリー"/>
+<page content="org.eclipse.team.ui.target.SiteExplorerView" label="Site Explorer"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.26" relationship="2" relative="topLeft"/>
+<info folder="true" part="org.eclipse.ui.internal.PartTabFolder@2bd3a" ratio="0.66" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.TaskList">
+<page content="org.eclipse.ui.views.TaskList" label="タスク"/>
+<page content="org.eclipse.team.ccvs.ui.console" label="CVS コンソール"/>
+<page content="org.eclipse.team.ccvs.ui.HistoryView" label="CVS リソース・ヒストリー"/>
+<page content="org.eclipse.team.ui.sync.SyncView" label="同期化"/>
+</folder>
+</info>
+<info folder="true" part="bottomLeft" ratio="0.5" relationship="4" relative="topLeft">
+<folder activePageID="org.eclipse.ui.views.ContentOutline">
+<page content="org.eclipse.ui.views.ContentOutline" label="アウトライン"/>
+<page content="org.eclipse.ui.externaltools.AntView" label="Ant"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+<toolbarLayout actionSet="1">
+<itemSize x="126" y="26"/>
+<itemSize x="48" y="26"/>
+<itemSize x="40" y="26"/>
+<itemSize x="108" y="26"/>
+<itemSize x="92" y="26"/>
+<wrapIndex index="0"/>
+<item id="org.eclipse.ui.workbench.file"/>
+<item id="org.eclipse.debug.ui.launchActionSet"/>
+<item id="org.eclipse.search.searchActionSet"/>
+<item id="org.eclipse.ui.workbench.navigate"/>
+<item id="org.eclipse.jdt.ui.CompilationUnitEditor"/>
+</toolbarLayout>
+</perspective>
+<perspective editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.openExternalFile"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.search.SearchResultView"/>
+<show_view_action id="org.eclipse.debug.ui.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.externaltools.AntView"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.views.ResourceNavigator" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="ナビゲーター"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.2079602" ratioLeft="209" ratioRight="796" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.74873525" ratioLeft="444" ratioRight="149" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.debug.ui.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="コンソール"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.PartTabFolder@23d08b" ratio="0.7495049" ratioLeft="757" ratioRight="253" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.externaltools.AntView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaVisible="1" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.browsing.JavaBrowsingPerspectiveFactory" id="org.eclipse.jdt.ui.JavaBrowsingPerspective" label="Java ブラウズ"/>
+<actionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<actionSet id="org.eclipse.search.searchActionSet"/>
+<actionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<actionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<actionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<actionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<actionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<actionSet id="org.eclipse.ui.NavigateActionSet"/>
+<actionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<actionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.ProjectsView"/>
+<show_view_action id="org.eclipse.jdt.ui.PackagesView"/>
+<show_view_action id="org.eclipse.jdt.ui.TypesView"/>
+<show_view_action id="org.eclipse.jdt.ui.MembersView"/>
+<show_view_action id="org.eclipse.search.SearchResultView"/>
+<show_view_action id="org.eclipse.debug.ui.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.externaltools.AntView"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetCreationWizard"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<view id="org.eclipse.jdt.ui.ProjectsView"/>
+<view id="org.eclipse.jdt.ui.PackagesView"/>
+<view id="org.eclipse.jdt.ui.TypesView"/>
+<view id="org.eclipse.jdt.ui.MembersView"/>
+<layout>
+<mainWindow>
+<info part="org.eclipse.jdt.ui.ProjectsView"/>
+<info folder="true" part="left" ratio="0.25" relationship="4" relative="org.eclipse.jdt.ui.ProjectsView">
+<folder>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="階層"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="アウトライン"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="パッケージ・エクスプローラー"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="ナビゲーター"/>
+<page content="org.eclipse.ui.externaltools.AntView" label="Ant"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.25" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.75" relationship="4" relative="org.eclipse.ui.editorss">
+<folder>
+<page content="org.eclipse.ui.views.TaskList" label="タスク"/>
+<page content="org.eclipse.search.SearchResultView" label="検索"/>
+<page content="org.eclipse.debug.ui.ConsoleView" label="コンソール"/>
+<page content="org.eclipse.ui.views.BookmarkNavigator" label="ブックマーク"/>
+</folder>
+</info>
+<info part="org.eclipse.jdt.ui.PackagesView" ratio="0.25" relationship="2" relative="org.eclipse.jdt.ui.ProjectsView"/>
+<info part="org.eclipse.jdt.ui.TypesView" ratio="0.33" relationship="2" relative="org.eclipse.jdt.ui.PackagesView"/>
+<info part="org.eclipse.jdt.ui.MembersView" ratio="0.5" relationship="2" relative="org.eclipse.jdt.ui.TypesView"/>
+</mainWindow>
+</layout>
+<toolbarLayout actionSet="1">
+<itemSize x="126" y="26"/>
+<itemSize x="116" y="26"/>
+<itemSize x="126" y="26"/>
+<itemSize x="66" y="26"/>
+<itemSize x="108" y="26"/>
+<itemSize x="92" y="26"/>
+<wrapIndex index="0"/>
+<item id="org.eclipse.ui.workbench.file"/>
+<item id="org.eclipse.debug.ui.launchActionSet"/>
+<item id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<item id="org.eclipse.search.searchActionSet"/>
+<item id="org.eclipse.ui.workbench.navigate"/>
+<item id="org.eclipse.jdt.ui.CompilationUnitEditor"/>
+</toolbarLayout>
+</perspective>
+<perspective editorAreaVisible="1" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="デバッグ"/>
+<actionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<actionSet id="org.eclipse.search.searchActionSet"/>
+<actionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<actionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<actionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<actionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<actionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<actionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<actionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.help.internal.ui.HelpActionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.update.ui.softwareUpdates"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.debug.ui.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.MonitorsView"/>
+<show_view_action id="org.eclipse.ui.externaltools.AntView"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<view id="org.eclipse.debug.ui.ConsoleView" removed="true"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.ExpressionView"/>
+<view id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<layout>
+<mainWindow>
+<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.debug.ui.DebugView">
+<page content="org.eclipse.debug.ui.DebugView" label="デバッグ"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="ナビゲーター"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="パッケージ・エクスプローラー"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="階層"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.75" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.ui.views.TaskList">
+<page content="org.eclipse.debug.ui.ConsoleView" label="コンソール"/>
+<page content="org.eclipse.ui.views.TaskList" label="タスク"/>
+<page content="org.eclipse.ui.views.BookmarkNavigator" label="ブックマーク"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="プロパティー"/>
+<page content="org.eclipse.search.SearchResultView" label="検索"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.5" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.ContentOutline">
+<page content="org.eclipse.ui.views.ContentOutline" label="アウトライン"/>
+<page content="org.eclipse.ui.externaltools.AntView" label="Ant"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<folder activePageID="org.eclipse.jdt.debug.ui.DisplayView">
+<page content="org.eclipse.debug.ui.VariableView" label="変数"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="ブレークポイント"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="式"/>
+<page content="org.eclipse.jdt.debug.ui.DisplayView" label="表示"/>
+<page content="org.eclipse.jdt.debug.ui.MonitorsView" label="スレッドとモニター"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+<toolbarLayout actionSet="1">
+<itemSize x="126" y="26"/>
+<itemSize x="116" y="26"/>
+<itemSize x="66" y="26"/>
+<itemSize x="108" y="26"/>
+<itemSize x="92" y="26"/>
+<wrapIndex index="0"/>
+<item id="org.eclipse.ui.workbench.file"/>
+<item id="org.eclipse.debug.ui.launchActionSet"/>
+<item id="org.eclipse.search.searchActionSet"/>
+<item id="org.eclipse.ui.workbench.navigate"/>
+<item id="org.eclipse.jdt.ui.CompilationUnitEditor"/>
+<position added="0" id="org.eclipse.jdt.ui.ClassFileEditor">
+<layout actionSet="1">
+<itemSize x="126" y="26"/>
+<itemSize x="116" y="26"/>
+<itemSize x="66" y="26"/>
+<itemSize x="108" y="26"/>
+<itemSize x="92" y="26"/>
+<itemSize x="92" y="26"/>
+<wrapIndex index="0"/>
+<item id="org.eclipse.ui.workbench.file"/>
+<item id="org.eclipse.debug.ui.launchActionSet"/>
+<item id="org.eclipse.search.searchActionSet"/>
+<item id="org.eclipse.ui.workbench.navigate"/>
+<item id="org.eclipse.jdt.ui.CompilationUnitEditor"/>
+<item id="org.eclipse.jdt.ui.ClassFileEditor"/>
+</layout>
+</position>
+</toolbarLayout>
+</perspective>
+</perspectives>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTbl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Asm.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Err.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTblEntry.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Parser.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Parser.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Asm.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/AsmException.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Err.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTbl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/InstTblEntry.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java"/>
+</editors>
+<item historyLabel="Asm.java" index="1">
+<position/>
+</item>
+<item historyLabel="AsmException.java" index="2">
+<position/>
+</item>
+<item historyLabel="Err.java" index="3">
+<position/>
+</item>
+<item historyLabel="Asm.java" index="1">
+<position/>
+</item>
+<item historyLabel="InstTbl.java" index="0">
+<position/>
+</item>
+<item historyLabel="InstTblEntry.java" index="4">
+<position/>
+</item>
+<item historyLabel="ListFormatter.java" index="5">
+<position/>
+</item>
+<item historyLabel="M1.java" index="6">
+<position/>
+</item>
+<item historyLabel="M2.java" index="7">
+<position/>
+</item>
+<item historyLabel="M3.java" index="8">
+<position/>
+</item>
+<item historyLabel="M4.java" index="9">
+<position/>
+</item>
+<item historyLabel="M5.java" index="10">
+<position/>
+</item>
+<item historyLabel="M6.java" index="11">
+<position/>
+</item>
+<item historyLabel="P1.java" index="12">
+<position/>
+</item>
+<item historyLabel="Parser.java" index="13">
+<position/>
+</item>
+<item historyLabel="RsvWords.java" index="14">
+<position/>
+</item>
+<item historyLabel="SymTbl.java" index="15">
+<position/>
+</item>
+<item historyLabel="SyntaxAnalyzer.java" index="16">
+<position/>
+</item>
+<item historyLabel="Tasm6.java" index="17">
+<position/>
+</item>
+<item historyLabel="Token.java" index="18">
+<position/>
+</item>
+<item historyLabel="TokenType.java" index="19">
+<position/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position/>
+</item>
+<item historyLabel="ListFormatter.java" index="21">
+<position/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position info="not_deleted" x="204" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position info="not_deleted" x="914" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position info="not_deleted" x="630" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position info="not_deleted" x="718" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="20">
+<position info="not_deleted" x="843" y="0"/>
+</item>
+<item historyLabel="Asm.java" index="22">
+<position/>
+</item>
+<item historyLabel="AsmException.java" index="23">
+<position/>
+</item>
+<item historyLabel="Asm.java" index="22">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="AsmException.java" index="24">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="Err.java" index="25">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="InstTbl.java" index="26">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="InstTblEntry.java" index="27">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="Lexer.java" index="28">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="ListFormatter.java" index="29">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="M1.java" index="30">
+<position info="not_deleted" x="319" y="0"/>
+</item>
+<item historyLabel="M2.java" index="31">
+<position info="not_deleted" x="364" y="5"/>
+</item>
+<item historyLabel="M3.java" index="32">
+<position info="not_deleted" x="342" y="5"/>
+</item>
+<item historyLabel="M4.java" index="33">
+<position info="not_deleted" x="361" y="5"/>
+</item>
+<item historyLabel="M5.java" index="34">
+<position info="not_deleted" x="338" y="5"/>
+</item>
+<item historyLabel="M6.java" index="35">
+<position info="not_deleted" x="353" y="5"/>
+</item>
+<item historyLabel="P1.java" index="36">
+<position info="not_deleted" x="335" y="5"/>
+</item>
+<item historyLabel="RsvWords.java" index="37">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="SymTbl.java" index="38">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item historyLabel="SyntaxAnalyzer.java" index="39">
+<position info="not_deleted" x="841" y="5"/>
+</item>
+<item historyLabel="Tasm6.java" index="40">
+<position info="not_deleted" x="560" y="5"/>
+</item>
+<item historyLabel="Token.java" index="41">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+<item active="true" historyLabel="TokenType.java" index="42">
+<position info="not_deleted" x="3" y="0"/>
+</item>
+</navigationHistory>
+<stickyState/>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TokenType.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/TokenType.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Token.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Token.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tasm6.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Tasm6.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SyntaxAnalyzer.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SyntaxAnalyzer.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SymTbl.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/SymTbl.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RsvWords.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/RsvWords.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="P1.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/P1.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M6.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M6.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M5.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M5.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M4.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M4.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M3.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M3.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M2.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M2.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="M1.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/M1.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ListFormatter.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/ListFormatter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Lexer.java" tooltip="Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java">
+<persistable path="/Tasm6/src/jp/ac/tokuyama/pico/tec6/Lexer.java"/>
+</file>
+</mruList>
+</workbench>

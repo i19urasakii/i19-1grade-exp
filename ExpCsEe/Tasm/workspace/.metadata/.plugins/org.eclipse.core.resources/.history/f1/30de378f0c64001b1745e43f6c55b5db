@@ -1,0 +1,25 @@
+/*
+ * 作成日: 2004/04/01
+ *
+ * Copyright (c) 2004 重村哲至
+ * All rights reserved.
+ */
+package jp.ac.tokuyama.pico.tec6;
+
+/**
+ * @author sigemura
+ * NO,HALT,PUSHF,POPF,EI,DI,RET,RETI
+ */
+class M1 extends SyntaxAnalyzer {
+
+  /* (非 Javadoc)
+   * @see jp.ac.tokuyama.pico.tec.SyntaxAnalyzer#analyzer(jp.ac.tokuyama.pico.tec.Parser, boolean)
+   */
+  byte[] analyzer(byte op, Lexer lexer, SymTbl symTbl) throws AsmException {
+    byte[] obj = new byte[1];
+
+    obj[0] = op;
+    return obj;
+  }
+
+}

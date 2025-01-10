@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates><codetemplate name="gettercomment" description="getter メソッドのコメント" context="gettercomment_context">/**
+ * @return ${bare_field_name} を戻します。
+ */</codetemplate><codetemplate name="settercomment" description="setter メソッドのコメント" context="settercomment_context">/**
+ * @param ${param} ${bare_field_name} を設定。
+ */</codetemplate><codetemplate name="fieldcomment" description="フィールドのコメント" context="fieldcomment_context">/**
+ * &lt;code&gt;${field}&lt;/code&gt; のコメント
+ */</codetemplate><codetemplate name="getterbody" description="作成済み getter 中のコード" context="getterbody_context">return ${field};</codetemplate><codetemplate name="setterbody" description="作成済み setter 中のコード" context="setterbody_context">${field} = ${param};</codetemplate><codetemplate name="constructorcomment" description="作成済みコンストラクターのコメント" context="constructorcomment_context">/**
+ * ${tags}
+ */</codetemplate><codetemplate name="typecomment" description="作成済みの型のコメント" context="typecomment_context">/**
+ * @author ${user}
+ *
+ */</codetemplate><codetemplate name="methodcomment" description="オーバーライドしないメソッドのコメント" context="methodcomment_context">/**
+ * ${tags}
+ */</codetemplate><codetemplate name="overridecomment" description="オーバーライドするメソッドのコメント" context="overridecomment_context">/* (非 Javadoc)
+ * ${see_to_overridden}
+ */</codetemplate><codetemplate name="newtype" description="新規作成ファイル" context="newtype_context">/*
+ * 作成日: ${date}
+ *
+ * Copyright (c) 2004 重村哲至
+ * All rights reserved.
+ */
+${package_declaration}
+
+${typecomment}
+${type_declaration}</codetemplate><codetemplate name="catchblock" description="新規 catch ブロック中のコード" context="catchblock_context">// ${todo} 自動生成された catch ブロック
+${exception_var}.printStackTrace();</codetemplate><codetemplate name="methodbody" description="作成済みメソッド・スタブ中のコード" context="methodbody_context">// ${todo} 自動生成されたメソッド・スタブ
+${body_statement}</codetemplate><codetemplate name="constructorbody" description="作成済みコンストラクター・スタブ中のコード" context="constructorbody_context">${body_statement}
+// ${todo} 自動生成されたコンストラクター・スタブ</codetemplate></templates>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="org.eclipse.emf.doc.nls1:2.1.2"/>
+		<item value="org.eclipse.gef.nls1:2.1.2"/>
+		<item value="org.eclipse.jdt.source.nls1:2.1.2"/>
+		<item value="org.eclipse.jdt.source:2.1.2"/>
+		<item value="org.eclipse.hyades.source.nls1:2.1.2"/>
+		<item value="org.eclipse.platform.source.nls1:2.1.2"/>
+		<item value="org.eclipse.hyades.sdk.nls1:2.1.2"/>
+		<item value="org.eclipse.emf.nls1:2.1.2"/>
+		<item value="org.eclipse.platform.nls1:2.1.2"/>
+		<item value="org.eclipse.hyades.memory.analysis.nls1:2.1.2"/>
+		<item value="org.eclipse.platform.freebsd.gtk.source:2.1.2"/>
+		<item value="org.eclipse.pde.nls1:2.1.2"/>
+		<item value="org.eclipse.platform:2.1.2"/>
+		<item value="org.eclipse.gef.source:2.1.2"/>
+		<item value="org.eclipse.hyades.nls1:2.1.2"/>
+		<item value="org.eclipse.emf.source.nls1:2.1.2"/>
+		<item value="org.eclipse.hyades.examples.nls1:2.1.2"/>
+		<item value="org.eclipse.jdt:2.1.2"/>
+		<item value="org.eclipse.xsd.doc.nls1:2.1.2"/>
+		<item value="org.eclipse.platform.freebsd.gtk:2.1.2"/>
+		<item value="org.eclipse.xsd.source.nls1:2.1.2"/>
+		<item value="org.eclipse.gef:2.1.2"/>
+		<item value="org.eclipse.gef.sdk:2.1.2"/>
+		<item value="org.eclipse.jdt.nls1:2.1.2"/>
+		<item value="org.eclipse.xsd.nls1:2.1.2"/>
+		<item value="org.eclipse.hyades.core.nls1:2.1.2"/>
+		<item value="org.eclipse.platform.source:2.1.2"/>
+		<item value="org.eclipse.pde:2.1.2"/>
+		<item value="org.eclipse.hyades.models.nls1:2.1.2"/>
+		<item value="org.eclipse.gef.source.nls1:2.1.2"/>
+	</list>
+	<section name="ImportResourcesAction">
+		<item key="WizardListSelectionPage.STORE_SELECTED_WIZARD_ID" value="org.eclipse.ui.wizards.import.FileSystem"/>
+	</section>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_CATEGORY_ID" value="Java"/>
+		<item key="NewWizardSelectionPage.STORE_SELECTED_WIZARD_ID" value="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="Java"/>
+		</list>
+	</section>
+	<section name="ExportResourcesAction">
+		<item key="WizardListSelectionPage.STORE_SELECTED_WIZARD_ID" value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard"/>
+	</section>
+</section>

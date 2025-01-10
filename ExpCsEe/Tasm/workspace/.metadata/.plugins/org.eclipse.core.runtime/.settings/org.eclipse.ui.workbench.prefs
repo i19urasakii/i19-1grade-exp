@@ -1,0 +1,5 @@
+#Tue May 17 12:12:42 JST 2005
+SWITCH_PERSPECTIVE_ON_PROJECT_CREATION=always
+eclipse.preferences.version=1
+WELCOME_DIALOG=false
+org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\n<org.eclipse.ui.commands><activeKeyConfiguration value\="org.eclipse.ui.emacsAcceleratorConfiguration"/></org.eclipse.ui.commands>

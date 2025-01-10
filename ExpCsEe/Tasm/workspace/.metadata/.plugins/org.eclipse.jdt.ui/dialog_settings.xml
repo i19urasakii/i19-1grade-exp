@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="TypeHierarchyViewPart.hierarchyview" value="2"/>
+	<item key="TypeHierarchyViewPart.orientation" value="0"/>
+	<section name="javadoc">
+		<item key="access" value="public"/>
+		<item key="docletname" value=""/>
+		<item key="fromStandard" value="true"/>
+		<item key="use" value="true"/>
+		<item key="notree" value="false"/>
+		<item key="noindex" value="false"/>
+		<item key="splitindex" value="true"/>
+		<item key="version" value="true"/>
+		<item key="destdir" value="/mnt/home/sigemura/DOC/TeC/TeC6a/CDROM/ASM/Tasm/workspace/Tasm6/doc"/>
+		<item key="nodeprecated" value="false"/>
+		<item key="javadoc_command_history" value="/usr/local/jdk1.4.2/bin/javadoc"/>
+		<item key="antpath" value="/mnt/home/sigemura/DOC/TeC/TeC6a/CDROM/ASM/Tasm/workspace/Tasm6/javadoc.xml"/>
+		<item key="openinbrowser" value="false"/>
+		<item key="nodeprecatedlist" value="false"/>
+		<item key="docletpath" value=""/>
+		<item key="source" value="false"/>
+		<item key="author" value="true"/>
+		<item key="nonavbar" value="false"/>
+		<section name="projects">
+		</section>
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
+	</section>
+	<section name="RefactoringWizard.preview">
+		<item key="width" value="600"/>
+		<item key="height" value="400"/>
+	</section>
+	<section name="outline_presenter_bounds">
+	</section>
+	<section name="JarPackageWizard">
+		<item key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS" value="false"/>
+		<item key="jarOptionsWizardPage.EXPORT_ERRORS" value="true"/>
+		<item key="jarOptionsWizardPage.DESCRIPTION_LOCATION" value=""/>
+		<item key="JarPackageWizardPage.COMPRESS" value="true"/>
+		<item key="JarPackageWizardPage.EXPORT_CLASS_FILES" value="true"/>
+		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
+		<item key="jarOptionsWizardPage.SAVE_DESCRIPTION" value="false"/>
+		<item key="jarOptionsWizardPage.EXPORT_WARNINGS" value="true"/>
+		<item key="JarManifestWizardPage.GENERATE_MANIFEST" value="true"/>
+		<item key="JarPackageWizardPage.OVERWRITE" value="false"/>
+		<item key="jarOptionsWizardPage.BUILD_IF_NEEDED" value="true"/>
+		<item key="JarPackageWizardPage.EXPORT_JAVA_FILES" value="false"/>
+		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value="/Tasm5/manifest.mf"/>
+		<item key="JarManifestWizardPage.SAVE_MANIFEST" value="true"/>
+		<item key="JarManifestWizardPage.REUSE_MANIFEST" value="false"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="Tasm5.jar"/>
+		</list>
+	</section>
+	<section name="ExtractMethodWizard">
+		<item key="ThrowRuntimeExceptions" value="false"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item key="create_main" value="false"/>
+		<item key="create_unimplemented" value="true"/>
+		<item key="create_constructor" value="false"/>
+	</section>
+	<section name="JavaSearchPage">
+	</section>
+	<section name="hierarchy_presenter_bounds">
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+</section>

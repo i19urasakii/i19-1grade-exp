@@ -1,0 +1,146 @@
+ADR  CODE          Label   Instruction             Comment              Page(1)
+
+00                 ; 次に空行の例
+00                 
+00                 ;SIOD   EQU     02H  コメント行の例
+00                 
+00                 ; 以下数式のテスト
+29                 A       EQU     1+6*3/2*(2+3)-5 ; 数式
+0B                 A2      EQU     (A+3)/4        
+15                 A3      EQU     1+2+3+4+5+6    
+D7                 B       EQU     -A             
+52                 C       EQU     A+-B           
+6B                 D       EQU     'a'+5*(1+1)    
+AC                 E       EQU     D+'A'          
+00                 
+00                 ;パス１エラーのテスト
+00                 ;F      EQU     A+A2+G                  ; 未定義ラベル
+00                 ;       DC      'A                      ; クオートがバランス
+00                 
+00                 ; パス２エラーのテスト
+00                 ;F      LD      G0,(A+B+C,G1            ; 括弧がバランスして
+00                 ;       IN      G0,X                    ; 未定義ラベル
+00                 ;E      IN      G0,X                    ; ラベル２重定義
+00                 ;G      IN      G0                      ; カンマがない
+00                 ;H      IN      G0,                     ; 式が無い
+00                 
+00                 ; プログラム先頭の ORG
+0E                         ORG     0EH            
+0E  01             D1      DC      1              
+0F                 ; プログラム途中の ORG
+20                         ORG     1FH+1          
+20  02             D2      DC      2              
+03                 I       EQU     3              
+21  00 00 00 00            DS      I*2            
+25  00 00 
+27  03             D3      DC      3              
+28  41             D4      DC      'A'            ; 大文字
+29  61             D5      DC      'a'            ; 小文字
+2A  0F             D6      DC      D1+1           ; 式
+2B  61 62 63 64    D7      DC      "abcdeABCDE"   ; 文字列
+2F  65 41 42 43 
+33  44 45 
+35  31 32 33 34    D8      DC      '1','2','3','4' ; 複数の文字
+39  2A 2B 35 6A    D9      DC      D6,D7,D8,D9+'1' ; 複数の式
+3D                 
+3D                 ; 機械語のテスト
+3D  10 0E          L1      LD      G0,D1          
+3F                 ;       LD      G0,D1+0,G0
+3F  11 0F                  LD      G0,D1+1,G1     
+41  12 10                  LD      G0,D1+2,G2     
+43                 ;       LD      G0,D1+2,SP
+43  13 11                  LD      G0,#D1+3       
+45  20 0E          L2      ST      G0,D1          
+47                 ;       ST      G0,D1+0,G0
+47  25 0F                  ST      G1,D1+1,G1     
+49  2E 10                  ST      SP,D1+2,G2     
+4B                 ;       ST      SP,D1+2,SP
+4B                 ;       ST      G1,#D1+3
+4B  34 0E          L3      ADD     G1,D1          
+4D  35 0F                  ADD     G1,D1+1,G1     
+4F  36 10                  ADD     G1,D1+2,G2     
+51  37 11                  ADD     G1,#D1+3       
+53  4C 0E          L4      SUB     SP,D1          
+55  4D 0F                  SUB     SP,D1+1,G1     
+57  4E 10                  SUB     SP,D1+2,G2     
+59  4F 11                  SUB     SP,#D1+3       
+ADR  CODE          Label   Instruction             Comment              Page(2)
+
+5B  50 0E          L5      CMP     G0,D1          
+5D  51 0F                  CMP     G0,D1+1,G1     
+5F  52 10                  CMP     G0,D1+2,G2     
+61  53 11                  CMP     G0,#D1+3       
+63  60 0E          L6      AND     G0,D1          
+65  61 0F                  AND     G0,D1+1,G1     
+67  62 10                  AND     G0,D1+2,G2     
+69  63 11                  AND     G0,#D1+3       
+6B  70 0E          L7      OR      G0,D1          
+6D  71 0F                  OR      G0,D1+1,G1     
+6F  72 10                  OR      G0,D1+2,G2     
+71  73 11                  OR      G0,#D1+3       
+73  80 0E          L8      XOR     G0,D1          
+75  81 0F                  XOR     G0,D1+1,G1     
+77  82 10                  XOR     G0,D1+2,G2     
+79  83 11                  XOR     G0,#D1+3       
+7B  90             L9      SHLA    G0             
+7C  94                     SHLA    G1             
+7D  98                     SHLA    G2             
+7E  9C                     SHLA    SP             
+7F  91             LA      SHLL    G0             
+80  95                     SHLL    G1             
+81  99                     SHLL    G2             
+82  9D                     SHLL    SP             
+83  92             LB      SHRA    G0             
+84  96                     SHRA    G1             
+85  9A                     SHRA    G2             
+86  9E                     SHRA    SP             
+87                 LC
+87  93                     SHRL    G0             
+88  97                     SHRL    G1             
+89  9B                     SHRL    G2             
+8A  9F                     SHRL    SP             
+8B  A0 87          LD      JMP     LC             
+8D                 ;       JMP     LC,G0
+8D  A1 87                  JMP     LC,G1          
+8F  A2 87                  JMP     LC,G2          
+91                 ;       JMP     LC,SP
+91                 ;       JMP     LC,#10
+91  A4 8B          LE      JZ      LD             
+93  A5 8B                  JZ      LD,G1          
+95  A6 8B                  JZ      LD,G2          
+97  A8 A3          LF      JC      LH             
+99  A9 A3                  JC      LH,G1          
+9B  AA A3                  JC      LH,G2          
+9D  AC 87          LG      JM      LC             
+9F  AD 87                  JM      LC,G1          
+A1  AE 87                  JM      LC,G2          
+A3  BC 87          LH      CALL    LC             
+A5  BD 87                  CALL    LC,G1          
+A7  BE 87                  CALL    LC,G2          
+A9  C0 29          LI      IN      G0,A           
+AB  C4 29                  IN      G1,A           
+AD  C8 29                  IN      G2,A           
+AF  CC 29                  IN      SP,A           
+B1  C3 29          LJ      OUT     G0,A           
+B3  C7 29                  OUT     G1,A           
+B5  CB 29                  OUT     G2,A           
+B7  CF 29                  OUT     SP,A           
+B9  D0             LK      PUSH    G0             
+BA  D4                     PUSH    G1             
+BB  D8                     PUSH    G2             
+BC  DC                     PUSH    SP             
+BD  DD             LL      PUSHF                  
+ADR  CODE          Label   Instruction             Comment              Page(3)
+
+BE  D2             LM      POP     G0             
+BF  D6                     POP     G1             
+C0  DA                     POP     G2             
+C1  DE                     POP     SP             
+C2  DF             LN      POPF                   
+C3  E0                     EI                     
+C4  E3                     DI                     
+C5  EC                     RET                    
+C6  EF                     RETI                   
+C7  FF             END     HALT                   
+C8                 ; 余計な空白
+C8                 ; 改行無しのEOF
