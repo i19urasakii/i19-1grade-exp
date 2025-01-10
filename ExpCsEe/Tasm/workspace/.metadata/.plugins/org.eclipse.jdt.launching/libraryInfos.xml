@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryInfos>
+<libraryInfo home="/usr/local/diablo-jdk1.5.0" version="1.5.0">
+<bootpath>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/rt.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/i18n.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/jsse.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/jce.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/charsets.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/usr/local/diablo-jdk1.5.0/jre" version="1.5.0">
+<bootpath>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/rt.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/i18n.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/jsse.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/jce.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/charsets.jar"/>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/local/diablo-jdk1.5.0/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/usr/local/jdk1.4.2/jre" version="1.4.2-p6-sigemura_24_feb_2004_17_58">
+<bootpath>
+<entry path="/usr/local/jdk1.4.2/jre/lib/rt.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/i18n.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/jsse.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/jce.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/charsets.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/local/jdk1.4.2/jre/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/local/jdk1.4.2/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="/usr/local/jdk1.4.2" version="1.4.2-p6-sigemura_24_feb_2004_17_58">
+<bootpath>
+<entry path="/usr/local/jdk1.4.2/jre/lib/rt.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/i18n.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/sunrsasign.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/jsse.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/jce.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/lib/charsets.jar"/>
+<entry path="/usr/local/jdk1.4.2/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/usr/local/jdk1.4.2/jre/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/usr/local/jdk1.4.2/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

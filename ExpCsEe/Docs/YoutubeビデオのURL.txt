@@ -1,0 +1,8 @@
+ビデオのURL
+
+① 設計思想と基本構造
+	https://youtu.be/47zMYxJmblw
+② TeC6の命令と基本動作
+	https://youtu.be/FK6xdkRf00E
+③ TeC6の制御手順
+	https://youtu.be/thUJyMmIJ9M

@@ -1,0 +1,30 @@
+
+!CONFIGURATION 2004/03/30 18:28:51
+!ACTIVITY 3 30, 2004 18:28:52.930 file:/usr/local/eclipse/ site-install success
+!ACTIVITY 3 30, 2004 18:28:52.947 file:/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml reconciliation success
+
+!CONFIGURATION 2004/03/31 9:01:31
+!ACTIVITY 3 31, 2004 09:01:31.922 file:/usr/local/eclipse/ site-install success
+!ACTIVITY 3 31, 2004 09:01:31.947 file:/.amd_mnt/giga/host/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml reconciliation success
+
+!CONFIGURATION 2004/03/31 21:22:05
+!ACTIVITY 3 31, 2004 21:22:05.850 file:/usr/local/eclipse/ site-install success
+!ACTIVITY 3 31, 2004 21:22:05.859 file:/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml reconciliation success
+
+!CONFIGURATION 2004/03/31 21:24:01
+!ACTIVITY 3 31, 2004 21:24:01.547 org.eclipse.gef_2.1.2 feature-enable success
+!ACTIVITY 3 31, 2004 21:24:01.549 org.eclipse.gef.source_2.1.2 feature-enable success
+!ACTIVITY 3 31, 2004 21:24:01.550 org.eclipse.gef.sdk_2.1.2 feature-enable success
+
+!CONFIGURATION 2004/04/01 9:27:05
+!ACTIVITY 4 01, 2004 09:27:06.201 file:/usr/local/eclipse/ site-install success
+!ACTIVITY 4 01, 2004 09:27:06.221 file:/.amd_mnt/giga/host/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml reconciliation success
+
+!CONFIGURATION 2004/04/03 12:35:17
+!ACTIVITY 4 03, 2004 12:35:17.785 file:/usr/local/eclipse/ site-install success
+!ACTIVITY 4 03, 2004 12:35:17.793 file:/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml reconciliation success
+
+!CONFIGURATION 2004/04/03 12:36:10
+!ACTIVITY 4 03, 2004 12:36:10.791 org.eclipse.gef_2.1.2 feature-enable success
+!ACTIVITY 4 03, 2004 12:36:10.793 org.eclipse.gef.source_2.1.2 feature-enable success
+!ACTIVITY 4 03, 2004 12:36:10.799 org.eclipse.gef.sdk_2.1.2 feature-enable success

@@ -1,0 +1,91 @@
+!SESSION 5 17, 2005 12:12:35.540 -----------------------------------------------
+eclipse.buildId=200409161125
+java.version=1.4.2-p7
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=freebsd, ARCH=x86, WS=gtk, NL=ja_JP
+
+!ENTRY org.eclipse.osgi 5 17, 2005 12:12:35.541
+!MESSAGE システムがシャットダウン中でプラグイン "org.eclipse.team.core" が既に停止したため、クラス "org.eclipse.team.internal.core.TeamHookDispatcher" はロードできません。
+!STACK 0
+java.lang.ClassNotFoundException: システムがシャットダウン中でプラグイン "org.eclipse.team.core" が既に停止したため、クラス "org.eclipse.team.internal.core.TeamHookDispatcher" はロードできません。
+	at org.eclipse.core.runtime.adaptor.EclipseClassLoader.shouldActivateFor(EclipseClassLoader.java:147)
+	at org.eclipse.core.runtime.adaptor.EclipseClassLoader.findLocalClass(EclipseClassLoader.java:62)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findLocalClass(BundleLoader.java:371)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:402)
+	at org.eclipse.osgi.framework.adaptor.core.AbstractClassLoader.loadClass(AbstractClassLoader.java:93)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:235)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.loadClass(BundleLoader.java:307)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:336)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1313)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:131)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:124)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:113)
+	at org.eclipse.core.internal.resources.Workspace.initializeTeamHook(Workspace.java:1275)
+	at org.eclipse.core.internal.resources.Workspace.getTeamHook(Workspace.java:1168)
+	at org.eclipse.core.internal.resources.Rules.<init>(Rules.java:39)
+	at org.eclipse.core.internal.resources.Workspace.getRuleFactory(Workspace.java:1148)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:149)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:212)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:66)
+
+!ENTRY org.eclipse.core.runtime 4 1 5 17, 2005 12:12:35.547
+!MESSAGE プラグイン org.eclipse.team.core はクラス org.eclipse.team.internal.core.TeamHookDispatcher をロードできませんでした。
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.team.internal.core.TeamHookDispatcher
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:404)
+	at org.eclipse.osgi.framework.adaptor.core.AbstractClassLoader.loadClass(AbstractClassLoader.java:93)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:235)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.loadClass(BundleLoader.java:307)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:336)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1313)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:131)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:124)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:113)
+	at org.eclipse.core.internal.resources.Workspace.initializeTeamHook(Workspace.java:1275)
+	at org.eclipse.core.internal.resources.Workspace.getTeamHook(Workspace.java:1168)
+	at org.eclipse.core.internal.resources.Rules.<init>(Rules.java:39)
+	at org.eclipse.core.internal.resources.Workspace.getRuleFactory(Workspace.java:1148)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:149)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:212)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:66)
+
+!ENTRY org.eclipse.core.resources 4 1 5 17, 2005 12:12:35.553
+!MESSAGE チーム・フックをインスタンス化できません。
+!STACK 1
+org.eclipse.core.runtime.CoreException[1]: java.lang.ClassNotFoundException: org.eclipse.team.internal.core.TeamHookDispatcher
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:404)
+	at org.eclipse.osgi.framework.adaptor.core.AbstractClassLoader.loadClass(AbstractClassLoader.java:93)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:235)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.loadClass(BundleLoader.java:307)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:336)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1313)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:131)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:124)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:113)
+	at org.eclipse.core.internal.resources.Workspace.initializeTeamHook(Workspace.java:1275)
+	at org.eclipse.core.internal.resources.Workspace.getTeamHook(Workspace.java:1168)
+	at org.eclipse.core.internal.resources.Rules.<init>(Rules.java:39)
+	at org.eclipse.core.internal.resources.Workspace.getRuleFactory(Workspace.java:1148)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:149)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:212)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:66)
+!SUBENTRY 1 org.eclipse.core.runtime 4 1 5 17, 2005 12:12:35.554
+!MESSAGE プラグイン org.eclipse.team.core はクラス org.eclipse.team.internal.core.TeamHookDispatcher をロードできませんでした。
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.team.internal.core.TeamHookDispatcher
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:404)
+	at org.eclipse.osgi.framework.adaptor.core.AbstractClassLoader.loadClass(AbstractClassLoader.java:93)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:235)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.loadClass(BundleLoader.java:307)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.loadClass(BundleHost.java:336)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.loadClass(AbstractBundle.java:1313)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:131)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:124)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:113)
+	at org.eclipse.core.internal.resources.Workspace.initializeTeamHook(Workspace.java:1275)
+	at org.eclipse.core.internal.resources.Workspace.getTeamHook(Workspace.java:1168)
+	at org.eclipse.core.internal.resources.Rules.<init>(Rules.java:39)
+	at org.eclipse.core.internal.resources.Workspace.getRuleFactory(Workspace.java:1148)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:149)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:212)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:66)

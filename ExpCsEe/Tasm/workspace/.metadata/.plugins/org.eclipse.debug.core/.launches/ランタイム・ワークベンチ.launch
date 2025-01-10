@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
+    <booleanAttribute key="clearws" value="false"/>
+    <booleanAttribute key="usefeatures" value="false"/>
+    <stringAttribute key="vminstall" value="jdk1.4.2"/>
+    <stringAttribute key="vmargs" value=""/>
+    <booleanAttribute key="default" value="true"/>
+    <stringAttribute key="org.eclipse.debug.ui.target_run_perspective" value="perspective_none"/>
+    <stringAttribute key="progargs" value="-os freebsd -ws gtk -arch x86 -nl ja_JP"/>
+    <booleanAttribute key="askclear" value="true"/>
+    <stringAttribute key="org.eclipse.debug.ui.target_debug_perspective" value="perspective_default"/>
+    <booleanAttribute key="showSplash" value="true"/>
+    <stringAttribute key="location0" value="/.amd_mnt/giga/host/mnt/home/sigemura/DOC/教育用コンピュータ/TeC5/ASM/runtime-workspace"/>
+    <stringAttribute key="application" value="org.eclipse.ui.workbench"/>
+    <stringAttribute key="org.eclipse.debug.core.source_locator_id" value="org.eclipse.jdt.debug.ui.javaSourceLocator"/>
+</launchConfiguration>

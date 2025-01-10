@@ -1,0 +1,13 @@
+#!/bin/sh
+
+java -jar /usr/local/lib/tasm/Tasm6.jar $*
+
+if [ $? -eq 0 ]; then
+ n=$#
+ src=`eval "echo \\$$n"`
+ b=`expr $src : '\([^.]*\).t6'`
+
+ echo
+ echo "[${b}.lst]"
+ cat ${b}.lst
+fi

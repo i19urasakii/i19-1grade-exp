@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- File written by Update manager 2.0 -->
+<!-- comments in this file are not preserved -->
+
+<configuration date="1080691291380" timeline="1080638931616" >
+   <site url="file:/usr/local/eclipse/"
+      platformURL="platform:/base/"
+      enable="true"
+      policy="1" >
+      <feature configured = "true" url="features/org.eclipse.pde_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.gef.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform.source.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.jdt.source.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.memory.analysis.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.xsd.doc.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.emf.source.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.emf.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.xsd.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform.freebsd.gtk_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.jdt.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.core.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.team.extras_2.1.0/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.sdk.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform.freebsd.gtk.source_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform.source_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.source.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.emf.doc.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.models.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.platform.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.xsd.source.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.jdt_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.jdt.source_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.hyades.examples.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.pde.nls1_2.1.2/" />
+      <feature configured = "true" url="features/org.eclipse.gef.source.nls1_2.1.2/" />
+   </site>
+
+   <activity action="3" 
+      label="file:/usr/local/eclipse/" 
+      date="1080691291922" 
+      status="0">
+   </activity>
+
+   <activity action="8" 
+      label="file:/.amd_mnt/giga/host/mnt/home/sigemura/DOC/&#25945;&#32946;&#29992;&#12467;&#12531;&#12500;&#12517;&#12540;&#12479;/TeC5/ASM/workspace/.metadata/.config/platform.cfg.metadata/v2LocalSite.xml" 
+      date="1080691291947" 
+      status="0">
+   </activity>
+
+</configuration>
+

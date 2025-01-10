@@ -1,0 +1,7 @@
+#Wed Oct 25 10:39:19 GMT 2006
+org.eclipse.jdt.core.formatter.tabulation.char=space
+org.eclipse.jdt.core.formatter.tabulation.size=2
+eclipse.preferences.version=1
+org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.launch
+org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=/usr/local/eclipse
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
