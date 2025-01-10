@@ -53,13 +53,13 @@ architecture Behavioral of Cpu is
            FLLd : out  STD_LOGIC; -- フラグレジスタのロード信号
            PCLd  : out  STD_LOGIC; -- プログラムカウンタのロード信号
 
-           DataALU : out  STD_LOGIC_vector (3 downto 0); -- DataALUの入力
-           SPop : out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの操作信号
+           --DataALU_OP : out  STD_LOGIC_vector (3 downto 0); -- DataALUの入力
+           SPop : out  STD_LOGIC;  -- スタックポインタの操作信号
 
            GRsel : out  STD_LOGIC_vector (1 downto 0); -- レジスタの選択信号
            PCSel : out  STD_LOGIC_vector (1 downto 0); -- プログラムカウンタの選択信号
-           DinSel: out  STD_LOGIC_vector (1 downto 0);  -- データバス入力の選択信号
-           AddrSel: out  STD_LOGIC_vector (3 downto 0); -- アドレスバスの選択信号
+           DoutSel: out  STD_LOGIC;  -- データバス入力の選択信号
+           AddrSel: out  STD_LOGIC_vector (2 downto 0); -- アドレスバスの選択信号
            SPsel  : out  STD_LOGIC;  -- スタックポインタの選択信号
 
            -- CPU外部へ出力
@@ -116,12 +116,12 @@ architecture Behavioral of Cpu is
   signal DRLd  : std_logic;                    -- DR:Ld
   signal FLLd : std_logic;                    -- Flag:Ld
   signal PCLd  : std_logic;                    -- GR:Ld
-  signal DataALU : std_logic_vector(3 downto 0); -- DataALU
-  signal SPop : std_logic_vector(1 downto 0);  -- SP:op
-  signal GRsel : std_logic_vector(1 downto 0); -- GR:sel
+  --signal DataALU_OP : std_logic_vector(3 downto 0); -- DataALUの命令
+  signal SPop : std_logic;  -- SP:op
+  signal GRSel : std_logic_vector(1 downto 0); -- GR:sel
   signal PCSel : std_logic_vector(1 downto 0); -- PC:sel
-  signal DinSel: std_logic_vector(1 downto 0);  -- Din:sel
-  signal AddrSel: std_logic_vector(3 downto 0); -- Addr:sel
+  signal DoutSel: std_logic;  -- Dout:sel
+  signal AddrSel: std_logic_vector(2 downto 0); -- Addr:sel
   signal SPsel  : std_logic;  -- SP:sel
 
   -- Muxの出力信号(データが入る？)
@@ -143,34 +143,31 @@ architecture Behavioral of Cpu is
 begin
 
 -- 仮の信号を出力しておく
-Halt <= '0';
-Addr <= "00000000";
-Dout <= "00000000";
-We   <= '0';
-Li   <= '0';
+  Halt <= '0';
+  Addr <= "00000000";
+  Dout <= "00000000";
+  We   <= '0';
+  Li   <= '0';
 
 -- コンソールへの接続
   Flags <= FLG;
   Li    <= IrLd;
 -- フラグ状態を外部出力。
--- Li は命令フェッチを示す信号で、IR(命令レジスタ)のロード時に立ち上がります。
+-- Li は命令フェッチを示す信号で、IR(命令レジスタ)のロード時に立ち上がる
 
 
 -- 制御部
 -- 制御部を構成するモジュールで、クロックやリセット信号を基に各制御信号を生成。
   seq1: Sequencer Port map (Clk, Reset, OP, Rd, Rx, FLG, Stop,
-                            IrLd, DrLd, FlgLd, GrLd, SpM1, SpP1, PcP1,
-                            PcJmp, PcRet, Ma, Md, We, Halt);
+                            IRLd, DRLd, FLLd, PCLd, SPop, GRSel, PCSel, DoutSel, AddrSel, SPSel,
+                            Ma, Md, We, Halt);
 
 -- BUS
-  Addr <= PC when Ma="00" else -- メモリアドレス選択がプログラムカウンタ（PC）の場合
-          EA when Ma="01" else -- メモリアドレス選択が有効アドレス（EA）の場合
-          SP;                  -- その他の場合スタックポインタ（SP）
-  
-  EA <= DR + RegRx; -- 有効アドレス計算 (データレジスタ + 選択されたレジスタ)
+  Addr <= Mux2_out; -- メモリアドレス選択
+  Dout <= Mux1_out; -- データ
 
-  Dout <= PC when Md='0' -- データ出力がプログラムカウンタの場合
-          else RegRd;    -- その他の場合選択されたレジスタ
+  -- ???
+  EA <= DR + RegRx; -- 有効アドレス計算 (データレジスタ + 選択されたレジスタ)
   
 
 
@@ -178,30 +175,30 @@ Li   <= '0';
 -- MUX0(PCSel)
   -- PCに格納するデータを選択
   Mux0_out <= AddrADD_out when PCSel="00" else -- 0
-              Dout when PCSel="01" else        -- 1
-              PC+1;                            -- 2
-  -- Dinに格納するデータを選択
-  Mux1_out <= GR when DinSel="0" else --0
-              PC+1;                   -- 1
+              Din when PCSel="01" else         -- 1
+              PC+'1';                          -- 2
+  -- Doutに格納するデータを選択
+  Mux1_out <= GR when DoutSel="0" else --0
+              PC+'1';                  -- 1
   -- Addrに格納するデータを選択
-  Mux2_out <= PC when AddrSel="000" else -- 0
-              PC+1 when AddrSel="001" else   -- 1
-              AddrADD_out when AddrSel="010" else   -- 2
-              SP when AddrSel="011" else   -- 3
-              SP+1;                  -- 4
+  Mux2_out <= PC when AddrSel="000" else           -- 0
+              PC+'1' when AddrSel="001" else       -- 1
+              AddrADD_out when AddrSel="010" else  -- 2
+              SP when AddrSel="011" else           -- 3
+              SP+'1';                              -- 4
   -- インデクスドモード：レジスタ選択
   Mux3_out <= "0000000" when Rx="00" else -- 0
               G1 when Rx="01" else -- 1
               G2 when Rx="10" else -- 2
-              "00000000";           -- 3
+              "00000000";          -- 3
   -- レジスタ選択
   Mux4_out <= G0 when Rd="00" else -- 0
               G1 when Rd="01" else -- 1
               G2 when Rd="10" else -- 2
-              SP;                   -- 3
+              SP;                  -- 3
   -- SPに格納するデータを選択
-  Mux5_out <= (SP + 1) when (SPop = '0' and SPSel = "0") else
-              (SP - 1) when (SPop = '1' and SPSel = "0") else
+  Mux5_out <= (SP+'1') when (SPop = '01' and SPSel = "0") else
+              (SP-'1') when (SPop = '10' and SPSel = "0") else
               DataALU_out when SPSel = "1";
 
 
@@ -209,12 +206,16 @@ Li   <= '0';
   GRSel <= G0 when Rd="00" else -- 0
            G1 when Rd="01" else -- 1
            G2 when Rd="10" else -- 2
-           SP;                   -- 3
+           SP;                  -- 3
+
+-- AddrADD BUS
+  AddrADD_out <= DR + Mux3_out;
+  DataALU_out <= Alu(8 downto 1)
 
 
 -- DataALU BUS
--- ALU (演算論理ユニット) の動作定義
-  SftRd <= (Mux4_out & '0') when Rx(1)='0' else                      -- 左シフト　SHLA/SHLL
+  -- ALU (演算論理ユニット) の動作定義
+  SftRd <= (Mux4_out & '0') when Rx(1)='0' else                      -- 左シフト(論理も算術も同じ)　SHLA/SHLL
     (Mux4_out(0) & Mux4_out(7) & Mux4_out(7 downto 1)) when Rx(0)='0' else -- 算術右シフト　SHRA
     (Mux4_out(0) & '0' & Mux4_out(7 downto 1));                         -- 論理右シフト　SHRL
   
@@ -228,116 +229,59 @@ Li   <= '0';
   Zero <= '1' when ALU(7 downto 0)="00000000" else '0';   -- ゼロフラグ設定
 
 
--- PC の制御
-process(Clk, Reset)
-begin
-  if (Reset='1') then
-    PC <= "00000000";
-  elsif (Clk'event and Clk='1') then
-    if (PCLd='1') then
-      PC <= Mux0_out;
+  -- PC の制御
+  process(Clk, Reset)
+  begin
+    if (Reset='1') then
+      PC <= "00000000";
+    elsif (Clk'event and Clk='1') then
+      if (PCLd='1') then
+        PC <= Mux0_out;
+      end if;
     end if;
-  end if;
-end process;
+  end process;
 
--- IR,DR の制御(ロード処理)
-process(Clk)
-begin
-  if (Clk'event and Clk='1') then
-    if (IRLd='1') then
-      OP <= Din(7 downto 4); -- 命令の操作コード
-      Rd <= Din(3 downto 2); -- デスティネーションレジスタ
-      Rx <= Din(1 downto 0); -- ソースレジスタ
+  -- IR,DR の制御(ロード処理)
+  process(Clk)
+  begin
+    if (Clk'event and Clk='1') then
+      if (IRLd='1') then
+        OP <= Din(7 downto 4); -- 命令の操作コード
+        Rd <= Din(3 downto 2); -- デスティネーションレジスタ
+        Rx <= Din(1 downto 0); -- ソースレジスタ
+      end if;
+      if (DRLd='1') then
+        DR <= Din;  -- データレジスタのロード
+      end if;
     end if;
-    if (DRLd='1') then
-      DR <= Din;  -- データレジスタのロード
-    end if;
-  end if;
-end process;
+  end process;
 
--- CPU レジスタの制御
-process(Clk, Reset)
-begin
-  if (Reset='1') then
-    G0  <= "00000000";
-    G1  <= "00000000";
-    G2  <= "00000000";
-    SP  <= "00000000";
-  elsif (Clk'event and Clk='1') then
-    if (DbgWe='1') then
-      case DbgAin is
-        when "000" => G0 <= DbgDin;
-        when "001" => G1 <= DbgDin;
-        when "010" => G2 <= DbgDin;
-        when "011" => SP <= DbgDin;
-        when others => null;
-      end case;
-    end if;
-  end if;
-end process;
-
-
--- フラグの制御
-process(Clk, Reset)
-begin
-  if (Reset='1') then
-    FLG <= "000";
-  elsif (Clk'event and Clk='1') then
-    if (DbgWe='1' and DbgAin="110") then
-      FLG <= DbgDin(2 downto 0);
-    end if;
-  end if;
-end process;
-
-
-
-
-
-
-
-
-
-
-
-
--- デバッグ用のコンソール接続
-DbgDout <= G0 when DbgAin="000" else
-           G1 when DbgAin="001" else
-           G2 when DbgAin="010" else
-           SP when DbgAin="011" else
-           PC when DbgAin="100" else
-           "00000" & FLG;  
-
-  
--- CPU レジスタの制御
-  RegRd <= G0 when Rd="00" else  -- G0レジスタを選択
-           G1 when Rd="01" else  -- G1レジスタを選択
-           G2 when Rd="10" else  -- G2レジスタを選択
-           SP;                   -- その他の場合スタックポインタを選択
-  RegRx <= G1 when Rx="01" else  -- G1レジスタを選択
-           G2 when Rx="10" else  -- G2レジスタを選択
-           "00000000";           -- その他の場合0を選択
-
-
+  -- CPU レジスタの制御
   process(Clk, Reset)
   begin
     if (Reset='1') then
       G0  <= "00000000";         -- 全レジスタを0にリセット
       G1  <= "00000000";
-      G2  <= "00000000";
+      G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
-      if (GrLd='1') then
-        case Rd is
+      if (GRSel = True) then
+        case GRSel is
           when "00" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
           when "01" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
           when "10" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
           when others => SP <= Alu(7 downto 0); -- SPにALU結果を格納
         end case;
-      elsif (SpP1='1') then
+      
+      elsif (SPop = '00') then
+        SP <= SP;
+      elsif (SPop = '01') then
         SP <= SP + 1; -- スタックポインタをインクリメント
-      elsif (SpM1='1') then
-        SP <= Sp - 1; -- スタックポインタをデクリメント
+      elsif (SPop = '10') then
+        SP <= SP - 1; -- スタックポインタをデクリメント
+      elsif (SPop = '11') then
+        SP <= SP;
+
       elsif (DbgWe='1') then
         case DbgAin is
           when "000" => G0 <= DbgDin; -- デバッグ入力でG0を設定
@@ -350,22 +294,33 @@ DbgDout <= G0 when DbgAin="000" else
     end if;
   end process;
 
--- フラグの制御
+
+  -- フラグの制御(追記：FLLd=1の時にフラグを設定)
   process(Clk, Reset)
   begin
     if (Reset='1') then
       FLG <= "000"; -- 全フラグをリセット
     elsif (Clk'event and Clk='1') then
-      if (FlgLd='1') then
+      if (FLLd='1') then
         FLG(2) <= Alu(8);                -- Carry
         FLG(1) <= Alu(7);                -- Sign
         FLG(0) <= Zero;                  -- Zero
-      elsif (DbgWe='1' and DbgAin="110") then
+      elsif (DbgWe='1' and DbgAin="110" and FLLd='1') then
         FLG <= DbgDin(2 downto 0); -- デバッグ入力でフラグを設定
       end if;
     end if;
   end process;
 
+
+  
+-- CPU レジスタの制御(そのまま)
+  RegRd <= G0 when Rd="00" else  -- G0レジスタを選択
+           G1 when Rd="01" else  -- G1レジスタを選択
+           G2 when Rd="10" else  -- G2レジスタを選択
+           SP;                   -- その他の場合スタックポインタを選択
+  RegRx <= G1 when Rx="01" else  -- G1レジスタを選択
+           G2 when Rx="10" else  -- G2レジスタを選択
+           "00000000";           -- その他の場合0を選択
   
 -- デバッグ用のコンソール接続
   DbgDout <= G0 when DbgAin="000" else  -- G0出力
