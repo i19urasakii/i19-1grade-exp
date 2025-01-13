@@ -54,7 +54,7 @@ architecture Behavioral of Cpu is
            PCLd  : out  STD_LOGIC; -- プログラムカウンタのロード信号
 
            --DataALU_OP : out  STD_LOGIC_vector (3 downto 0); -- DataALUの入力
-           SPop : out  STD_LOGIC;  -- スタックポインタの操作信号
+           SPop : out  out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの操作信号
 
            GRsel : out  STD_LOGIC_vector (1 downto 0); -- レジスタの選択信号
            PCSel : out  STD_LOGIC_vector (1 downto 0); -- プログラムカウンタの選択信号
@@ -117,7 +117,7 @@ architecture Behavioral of Cpu is
   signal FLLd : std_logic;                    -- Flag:Ld
   signal PCLd  : std_logic;                    -- GR:Ld
   --signal DataALU_OP : std_logic_vector(3 downto 0); -- DataALUの命令
-  signal SPop : std_logic;  -- SP:op
+  signal SPop : std_logic_vector(1 downto 0);  -- SP:op
   signal GRSel : std_logic_vector(1 downto 0); -- GR:sel
   signal PCSel : std_logic_vector(1 downto 0); -- PC:sel
   signal DoutSel: std_logic;  -- Dout:sel
@@ -132,8 +132,8 @@ architecture Behavioral of Cpu is
   signal Mux4_out : std_logic_vector(7 downto 0);
   signal Mux5_out : std_logic_vector(7 downto 0);
   -- DataALUの出力信号
-  signal DataALU_out : std_logic_vector(8 downto 0);
-  signal AddrADD_out : std_logic_vector(8 downto 0);
+  signal DataALU_out : std_logic_vector(7 downto 0); -- 8-0
+  signal AddrADD_out : std_logic_vector(7 downto 0); -- 8-0
 
   signal Ma    : std_logic_vector(1 downto 0); -- MA(PC=00,EA=01,SP=10)
   signal Md    : std_logic;                    -- MD(PC=0,GR=1)
@@ -174,11 +174,11 @@ begin
 -- MUXの動作定義
 -- MUX0(PCSel)
   -- PCに格納するデータを選択
-  Mux0_out <= AddrADD_out when PCSel="00" else -- 0
+  Mux0_out <= AddrADD_out when PCSel="00" else -- 0:
               Din when PCSel="01" else         -- 1
               PC+'1';                          -- 2
   -- Doutに格納するデータを選択
-  Mux1_out <= GR when DoutSel="0" else --0
+  Mux1_out <= Mux4_out when DoutSel='0' else --0
               PC+'1';                  -- 1
   -- Addrに格納するデータを選択
   Mux2_out <= PC when AddrSel="000" else           -- 0
@@ -187,7 +187,7 @@ begin
               SP when AddrSel="011" else           -- 3
               SP+'1';                              -- 4
   -- インデクスドモード：レジスタ選択
-  Mux3_out <= "0000000" when Rx="00" else -- 0
+  Mux3_out <= "00000000" when Rx="00" else -- 0
               G1 when Rx="01" else -- 1
               G2 when Rx="10" else -- 2
               "00000000";          -- 3
@@ -197,8 +197,8 @@ begin
               G2 when Rd="10" else -- 2
               SP;                  -- 3
   -- SPに格納するデータを選択
-  Mux5_out <= (SP+'1') when (SPop = '01' and SPSel = "0") else
-              (SP-'1') when (SPop = '10' and SPSel = "0") else
+  Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = "0") else
+              (SP-'1') when (SPop = "10" and SPSel = "0") else
               DataALU_out when SPSel = "1";
 
 
@@ -210,7 +210,7 @@ begin
 
 -- AddrADD BUS
   AddrADD_out <= DR + Mux3_out;
-  DataALU_out <= Alu(8 downto 1)
+  DataALU_out <= Alu(8 downto 1);
 
 
 -- DataALU BUS
@@ -265,7 +265,7 @@ begin
       G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
-      if (GRSel = True) then
+      if (GRSel="00" or GRSel="01" GRSel="10" or GRSel="11") then --レジスタが選択されてたら
         case GRSel is
           when "00" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
           when "01" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
@@ -273,13 +273,13 @@ begin
           when others => SP <= Alu(7 downto 0); -- SPにALU結果を格納
         end case;
       
-      elsif (SPop = '00') then
+      elsif (SPop = "00") then
         SP <= SP;
-      elsif (SPop = '01') then
+      elsif (SPop = "01") then
         SP <= SP + 1; -- スタックポインタをインクリメント
-      elsif (SPop = '10') then
+      elsif (SPop = "10") then
         SP <= SP - 1; -- スタックポインタをデクリメント
-      elsif (SPop = '11') then
+      elsif (SPop = "11") then
         SP <= SP;
 
       elsif (DbgWe='1') then

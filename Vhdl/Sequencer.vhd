@@ -24,7 +24,7 @@ entity Sequencer is
          FLLd : out  STD_LOGIC;
          PCLD  : out  STD_LOGIC;
 
-         SPop  : out  STD_LOGIC;
+         SPop  : out  STD_LOGIC_vector (1 downto 0);
 
          GRsel : out  STD_LOGIC_vector (1 downto 0);  -- レジスタの選択信号
          PCSel : out  STD_LOGIC_vector (1 downto 0);  -- MUX0 : プログラムカウンタの選択信号
