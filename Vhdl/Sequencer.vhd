@@ -113,10 +113,10 @@ begin
   -- jmpしてたら1
   --        JMP     JZ and Z Flag       JC and C Flag       JM and S Flag
   JmpCnd <= Jmp or (Jz and Flag(0)) or (Jc and Flag(2)) or (Jm and Flag(1));
-  
+   
   IRLd  <= '1' when DecSt(0)='1' else '0';  --
   DRLd  <= '1' when DecSt(1)='1' or DecSt(2)='1'or DecSt(10)='1' else '0';  -- LD/ST/POP
-  FLLd <= '1' when DecSt(3)='1' and OP/="0001" and DecSt(4)='1' else '0';    -- OP /=LD
+  FLLd <= '1' when (DecSt(3)='1' and OP="0001") or DecSt(4)='1' else '0';    -- OP /=LD
   PCLd <= '1' when (DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or DecSt(6)='1'  
                 or DecSt(8)='1' or DecSt(12)='1' else '0';  -- JMP/ST/CALL/PUSH/POP/RET
   
@@ -134,14 +134,14 @@ begin
   PCSel <= "01" when (DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and (Rx="01" or Rx="10")) or DecSt(7)='1') else  -- AddrADDの出力：インデクスドモード
            "10" when ((DecSt(6)='1' and JmpCnd='1' ) or DecSt(8)='1') else                                     -- Dinの出力：JMP成立時, CALL
            "11" when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(JmpCnd='1'))) else
-            "00"
+            "00";
   -- Mux1: データバス入力の選択信号
   DoutSel <= "01" when DecSt(7)='1' else
              "10" when DecSt(5)='1' or DecSt(9)='1' else
              "00";
   -- Mux2: アドレスバスの選択信号
   AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' else -- 1:PC
-             "010" when (DecSt(6)='1' and (Jz='1' or Jc='1' or Jm='1'))  else                           -- 2:PC+1, st6の条件不成立
+             "010" when (DecSt(6)='1' and (JmpCnd='1'))  else                           -- 2:PC+1, st6の条件不成立
              "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(JmpCnd='1')) else -- 3:AddrADD, st6の条件成立
              "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP
              "101" when DecSt(7)='1' or DecSt(9)='1' else
