@@ -56,11 +56,11 @@ architecture Behavioral of Cpu is
            --DataALU_OP : out  STD_LOGIC_vector (3 downto 0); -- DataALUの入力
            SPop : out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの操作信号
 
-           GRsel : out  STD_LOGIC_vector (1 downto 0); -- レジスタの選択信号
+           GRsel : out  STD_LOGIC_vector (2 downto 0); -- レジスタの選択信号
            PCSel : out  STD_LOGIC_vector (1 downto 0); -- プログラムカウンタの選択信号
-           DoutSel: out  STD_LOGIC;  -- データバス入力の選択信号
+           DoutSel: out  STD_LOGIC_vector (1 downto 0);  -- データバス入力の選択信号
            AddrSel: out  STD_LOGIC_vector (2 downto 0); -- アドレスバスの選択信号
-           SPsel  : out  STD_LOGIC;  -- スタックポインタの選択信号
+           SPsel  : out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの選択信号
 
            -- CPU外部へ出力
            We    : out  STD_LOGIC;  -- 書き込み信号
@@ -118,11 +118,11 @@ architecture Behavioral of Cpu is
   signal PCLd  : std_logic;                    -- GR:Ld
   --signal DataALU_OP : std_logic_vector(3 downto 0); -- DataALUの命令
   signal SPop : std_logic_vector(1 downto 0);  -- SP:op
-  signal GRSel : std_logic_vector(1 downto 0); -- GR:sel
+  signal GRSel : std_logic_vector(2 downto 0); -- GR:sel
   signal PCSel : std_logic_vector(1 downto 0); -- PC:sel
-  signal DoutSel: std_logic;  -- Dout:sel
+  signal DoutSel: std_logic_vector(1 downto 0);  -- Dout:sel
   signal AddrSel: std_logic_vector(2 downto 0); -- Addr:sel
-  signal SPsel  : std_logic;  -- SP:sel
+  signal SPsel  : std_logic_vector(1 downto 0);  -- SP:sel
 
   -- Muxの出力信号(データが入る？)
   signal Mux0_out : std_logic_vector(7 downto 0);
@@ -130,9 +130,9 @@ architecture Behavioral of Cpu is
   signal Mux2_out : std_logic_vector(7 downto 0);
   signal Mux3_out : std_logic_vector(7 downto 0);
   signal Mux4_out : std_logic_vector(7 downto 0);
-  signal Mux5_out : std_logic_vector(7 downto 0);
+  --signal Mux5_out : std_logic_vector(7 downto 0);
   -- DataALUの出力信号
-  signal DataALU_out : std_logic_vector(7 downto 0); -- 8-0
+  --signal DataALU_out : std_logic_vector(7 downto 0); -- 8-0
   signal AddrADD_out : std_logic_vector(7 downto 0); -- 8-0
 
   signal Ma    : std_logic_vector(1 downto 0); -- MA(PC=00,EA=01,SP=10)
@@ -168,24 +168,24 @@ begin
   Dout <= Mux1_out; -- データ
 
   -- ???
-  EA <= DR + RegRx; -- 有効アドレス計算 (データレジスタ + 選択されたレジスタ)
+  --EA <= DR + RegRx; -- 有効アドレス計算 (データレジスタ + 選択されたレジスタ)
   
 
 
 -- MUXの動作定義
 -- MUX0(PCSel)
   -- PCに格納するデータを選択
-  Mux0_out <= AddrADD_out when PCSel="00" else -- 0:
-              Din when PCSel="01" else         -- 1
+  Mux0_out <= AddrADD_out when PCSel="01" else -- 0:
+              Din when PCSel="10" else         -- 1
               PC+'1';                          -- 2
   -- Doutに格納するデータを選択
-  Mux1_out <= Mux4_out when DoutSel='0' else --0
+  Mux1_out <= Mux4_out when DoutSel="01" else --0
               PC+'1';                  -- 1
   -- Addrに格納するデータを選択
-  Mux2_out <= PC when AddrSel="000" else           -- 0
-              PC+'1' when AddrSel="001" else       -- 1
-              AddrADD_out when AddrSel="010" else  -- 2
-              SP when AddrSel="011" else           -- 3
+  Mux2_out <= PC when AddrSel="001" else           -- 0
+              PC+'1' when AddrSel="010" else       -- 1
+              AddrADD_out when AddrSel="011" else  -- 2
+              SP when AddrSel="100" else           -- 3
               SP+'1';                              -- 4
   -- インデクスドモード：レジスタ選択
   Mux3_out <= "00000000" when Rx="00" else -- 0
@@ -198,20 +198,17 @@ begin
               G2 when Rd="10" else -- 2
               SP;                  -- 3
   -- SPに格納するデータを選択
-  Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = '0') else
-              (SP-'1') when (SPop = "10" and SPSel = '0') else
-              DataALU_out when SPSel = '1';
+  -- Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = '0') else
+  --             (SP-'1') when (SPop = "10" and SPSel = '0') else
+  --             DataALU_out when SPSel = '1';
 
 
   -- レジスタ選択????
-  -- GRSel <= G0 when Rd="00" else -- 0
-  --          G1 when Rd="01" else -- 1
-  --          G2 when Rd="10" else -- 2
-  --          SP;                  -- 3
+  --GRSel <= Rd
 
 -- AddrADD BUS
   AddrADD_out <= DR + Mux3_out;
-  DataALU_out <= Alu(8 downto 1);
+  --DataALU_out <= Alu(8 downto 1);
 
 
 -- DataALU BUS
@@ -266,16 +263,17 @@ begin
       G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
-      if (GRSel="00" or GRSel="01" or GRSel="10" or GRSel="11") then --レジスタが選択されてたら
+      if (GRSel="001" or GRSel="010" or GRSel="011" or GRSel="100") then --レジスタが選択されてたら
         case GRSel is
-          when "00" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
-          when "01" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
-          when "10" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
-          when "11" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
+          when "001" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
+          when "010" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
+          when "011" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
+          when "100" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
           when others => null;        -- その他の場合は無処理
         end case;
       -- 先にSPのif文にした方がいい？SPで計算があった時はSPに格納するようにする
       else
+        --SP <= Mux5_out;
         case SPop is
           when "00" => SP <= SP; -- SPをそのまま
           when "01" => SP <= SP + 1; -- SPをインクリメント
@@ -317,13 +315,13 @@ begin
 
   
 -- CPU レジスタの制御(そのまま)
-  RegRd <= G0 when Rd="00" else  -- G0レジスタを選択
-           G1 when Rd="01" else  -- G1レジスタを選択
-           G2 when Rd="10" else  -- G2レジスタを選択
-           SP;                   -- その他の場合スタックポインタを選択
-  RegRx <= G1 when Rx="01" else  -- G1レジスタを選択
-           G2 when Rx="10" else  -- G2レジスタを選択
-           "00000000";           -- その他の場合0を選択
+  -- RegRd <= G0 when Rd="00" else  -- G0レジスタを選択
+  --          G1 when Rd="01" else  -- G1レジスタを選択
+  --          G2 when Rd="10" else  -- G2レジスタを選択
+  --          SP;                   -- その他の場合スタックポインタを選択
+  -- RegRx <= G1 when Rx="01" else  -- G1レジスタを選択
+  --          G2 when Rx="10" else  -- G2レジスタを選択
+  --          "00000000";           -- その他の場合0を選択
   
 -- デバッグ用のコンソール接続
   DbgDout <= G0 when DbgAin="000" else  -- G0出力
