@@ -54,7 +54,7 @@ architecture Behavioral of Cpu is
            PCLd  : out  STD_LOGIC; -- プログラムカウンタのロード信号
 
            --DataALU_OP : out  STD_LOGIC_vector (3 downto 0); -- DataALUの入力
-           SPop : out  out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの操作信号
+           SPop : out  STD_LOGIC_vector (1 downto 0);  -- スタックポインタの操作信号
 
            GRsel : out  STD_LOGIC_vector (1 downto 0); -- レジスタの選択信号
            PCSel : out  STD_LOGIC_vector (1 downto 0); -- プログラムカウンタの選択信号
@@ -142,16 +142,16 @@ architecture Behavioral of Cpu is
 -- ここからアーキテクチャ部分の記述が始まる
 begin
 
--- 仮の信号を出力しておく
-  Halt <= '0';
-  Addr <= "00000000";
-  Dout <= "00000000";
-  We   <= '0';
-  Li   <= '0';
+-- 仮の信号を出力しておく(コメント行にしたらエラー消えた)
+  -- Halt <= '0';
+  -- Addr <= "00000000";
+  -- Dout <= "00000000";
+  -- We   <= '0';
+  -- Li   <= '0';
 
 -- コンソールへの接続
   Flags <= FLG;
-  Li    <= IrLd;
+  Li    <= IRLd;
 -- フラグ状態を外部出力。
 -- Li は命令フェッチを示す信号で、IR(命令レジスタ)のロード時に立ち上がる
 
@@ -159,7 +159,8 @@ begin
 -- 制御部
 -- 制御部を構成するモジュールで、クロックやリセット信号を基に各制御信号を生成。
   seq1: Sequencer Port map (Clk, Reset, OP, Rd, Rx, FLG, Stop,
-                            IRLd, DRLd, FLLd, PCLd, SPop, GRSel, PCSel, DoutSel, AddrSel, SPSel,
+                            IRLd, DRLd, FLLd, PCLd, SPop,
+                            GRSel, PCSel, DoutSel, AddrSel, SPSel,
                             We, Halt);
 
 -- BUS
@@ -197,16 +198,16 @@ begin
               G2 when Rd="10" else -- 2
               SP;                  -- 3
   -- SPに格納するデータを選択
-  Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = "0") else
-              (SP-'1') when (SPop = "10" and SPSel = "0") else
-              DataALU_out when SPSel = "1";
+  Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = '0') else
+              (SP-'1') when (SPop = "10" and SPSel = '0') else
+              DataALU_out when SPSel = '1';
 
 
   -- レジスタ選択????
-  GRSel <= G0 when Rd="00" else -- 0
-           G1 when Rd="01" else -- 1
-           G2 when Rd="10" else -- 2
-           SP;                  -- 3
+  -- GRSel <= G0 when Rd="00" else -- 0
+  --          G1 when Rd="01" else -- 1
+  --          G2 when Rd="10" else -- 2
+  --          SP;                  -- 3
 
 -- AddrADD BUS
   AddrADD_out <= DR + Mux3_out;
@@ -265,24 +266,26 @@ begin
       G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
-      if (GRSel="00" or GRSel="01" GRSel="10" or GRSel="11") then --レジスタが選択されてたら
+      if (GRSel="00" or GRSel="01" or GRSel="10" or GRSel="11") then --レジスタが選択されてたら
         case GRSel is
           when "00" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
           when "01" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
           when "10" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
-          when others => SP <= Alu(7 downto 0); -- SPにALU結果を格納
+          when "11" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
+          when others => null;        -- その他の場合は無処理
         end case;
-      
-      elsif (SPop = "00") then
-        SP <= SP;
-      elsif (SPop = "01") then
-        SP <= SP + 1; -- スタックポインタをインクリメント
-      elsif (SPop = "10") then
-        SP <= SP - 1; -- スタックポインタをデクリメント
-      elsif (SPop = "11") then
-        SP <= SP;
+      -- 先にSPのif文にした方がいい？SPで計算があった時はSPに格納するようにする
+      else
+        case SPop is
+          when "00" => SP <= SP; -- SPをそのまま
+          when "01" => SP <= SP + 1; -- SPをインクリメント
+          when "10" => SP <= SP - 1; -- SPをデクリメント
+          when "11" => SP <= SP; -- SPをそのまま
+          when others => null;        -- その他の場合は無処理
+        end case;
+      end if;
 
-      elsif (DbgWe='1') then
+      if (DbgWe='1') then
         case DbgAin is
           when "000" => G0 <= DbgDin; -- デバッグ入力でG0を設定
           when "001" => G1 <= DbgDin; -- デバッグ入力でG1を設定
