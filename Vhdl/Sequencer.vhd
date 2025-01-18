@@ -90,7 +90,7 @@ begin
            "1000" when DecSt(7)='1' else -- CALL
            "1001" when DecSt(1)='1' and OP="1101" and Rx="00" else -- PUSH
            "1010" when DecSt(1)='1' and OP="1101" and Rx="10" else -- POP
-           "1011" when DecSt(10)='1'                          else
+           "1011" when DecSt(10)='1' else
            "1100" when DecSt(1)='1' and OP="1110" else   -- RET
            "1101";                                       -- HALT/ERROR
 
@@ -133,19 +133,19 @@ begin
            -- (Jz='1' or Jc='1' or Jm='1')
   PCSel <= "01" when (DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and (Rx="01" or Rx="10")) or DecSt(7)='1') else  -- AddrADDの出力：インデクスドモード
            "10" when ((DecSt(6)='1' and JmpCnd='1' ) or DecSt(8)='1') else                                     -- Dinの出力：JMP成立時, CALL
-           "11" when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(JmpCnd='1'))) else
-            "00";
+           "11" when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(JmpCnd='1'))) else -- PC+1
+           "00";
   -- Mux1: データバス入力の選択信号
-  DoutSel <= "01" when DecSt(7)='1' else
-             "10" when DecSt(5)='1' or DecSt(9)='1' else
+  DoutSel <= "01" when DecSt(5)='1' or DecSt(9)='1' else -- 1:GR 
+             "10" when DecSt(7)='1' else -- 2:PC+1
              "00";
   -- Mux2: アドレスバスの選択信号
   AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' else -- 1:PC
              "010" when (DecSt(6)='1' and (JmpCnd='1'))  else                           -- 2:PC+1, st6の条件不成立
              "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and not(JmpCnd='1')) else -- 3:AddrADD, st6の条件成立
              "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP
-             "101" when DecSt(7)='1' or DecSt(9)='1' else
-             "000";       -- 5:SP +/-
+             "101" when DecSt(7)='1' or DecSt(9)='1' else -- 5:SP +/-
+             "000";       
 
   -- Mux5: スタックポインタの選択信号
   SPSel <= "01" when DecSt(10)='1' or DecSt(12)='1'else -- 
