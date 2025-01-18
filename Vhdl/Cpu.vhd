@@ -177,7 +177,7 @@ begin
   -- PCに格納するデータを選択
   Mux0_out <= AddrADD_out when PCSel="01" else -- 0:
               Din when PCSel="10" else         -- 1
-              PC+'1';                          -- 2
+              PC+'1';       -- 2                          
   -- Doutに格納するデータを選択
   Mux1_out <= Mux4_out when DoutSel="01" else --0
               PC+'1';                  -- 1
