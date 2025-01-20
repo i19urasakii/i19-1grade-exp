@@ -156,7 +156,7 @@ begin
           "10" when DecSt(7)='1' or DecSt(9)='1' else  -- SPをデクリメント
           "00";
 
-  We    <= DecSt(5) or DecSt(7) or DecSt(9); -- 書き込み  /ST/CALL/PUSHの時 4,6,8
+  We    <= DecSt(5) or DecSt(7) or DecSt(9); -- 書き込み  /ST/CALL/PUSHの時
   Halt  <= DecSt(13);
 
 end Behavioral;
