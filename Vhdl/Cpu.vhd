@@ -175,12 +175,14 @@ begin
 -- MUXの動作定義
 -- MUX0(PCSel)
   -- PCに格納するデータを選択
-  Mux0_out <= AddrADD_out when PCSel="01" else -- 0:
+  Mux0_out <= AddrADD_out when PCSel="01" else -- 0
               Din when PCSel="10" else         -- 1
-              PC+'1';       -- 2                          
+              PC+'1' when PCSel="11" else      -- 2    
+              null;             
   -- Doutに格納するデータを選択
   Mux1_out <= Mux4_out when DoutSel="01" else --0
-              PC+'1';                  -- 1
+              PC+'1' when DoutSel="10" else  -- 1
+              null;                  
   -- Addrに格納するデータを選択
   Mux2_out <= PC when AddrSel="001" else           -- 0
               PC+'1' when AddrSel="010" else       -- 1
