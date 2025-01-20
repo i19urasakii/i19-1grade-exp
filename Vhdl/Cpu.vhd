@@ -200,7 +200,7 @@ begin
   -- SPに格納するデータを選択
   Mux5_out <= (SP + 1) when (SPop = "01" and SPSel = "10") else
               (SP - 1) when (SPop = "10" and SPSel = "10") else
-              DataALU_out when SPSel = "01" else
+              Alu(7 downto 0) when SPSel = "01" else
               SP;
 
 
