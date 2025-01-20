@@ -130,7 +130,7 @@ architecture Behavioral of Cpu is
   signal Mux2_out : std_logic_vector(7 downto 0);
   signal Mux3_out : std_logic_vector(7 downto 0);
   signal Mux4_out : std_logic_vector(7 downto 0);
-  --signal Mux5_out : std_logic_vector(7 downto 0);
+  signal Mux5_out : std_logic_vector(7 downto 0);
   -- DataALUの出力信号
   --signal DataALU_out : std_logic_vector(7 downto 0); -- 8-0
   signal AddrADD_out : std_logic_vector(7 downto 0); -- 8-0
@@ -198,9 +198,10 @@ begin
               G2 when Rd="10" else -- 2
               SP;                  -- 3
   -- SPに格納するデータを選択
-  -- Mux5_out <= (SP+'1') when (SPop = "01" and SPSel = '0') else
-  --             (SP-'1') when (SPop = "10" and SPSel = '0') else
-  --             DataALU_out when SPSel = '1';
+  Mux5_out <= (SP + 1) when (SPop = "01" and SPSel = "10") else
+              (SP - 1) when (SPop = "10" and SPSel = "10") else
+              DataALU_out when SPSel = "01" else
+              SP;
 
 
   -- レジスタ選択????
@@ -263,25 +264,40 @@ begin
       G2  <= "00000000"; 
       SP  <= "00000000";
     elsif (Clk'event and Clk='1') then
-      if (GRSel="001" or GRSel="010" or GRSel="011" or GRSel="100") then --レジスタが選択されてたら
+      -- SPopが 01 または 10 の場合、SPの計算結果を優先的に格納
+      if (SPop = "01" or SPop = "10") then
+        SP <= Mux5_out;
+      
+      -- 汎用レジスタの更新処理
+      elsif (GRSel = "001" or GRSel = "010" or GRSel = "011" or GRSel = "100") then
         case GRSel is
           when "001" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
           when "010" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
           when "011" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
           when "100" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
-          when others => null;        -- その他の場合は無処理
-        end case;
-      -- 先にSPのif文にした方がいい？SPで計算があった時はSPに格納するようにする
-      else
-        --SP <= Mux5_out;
-        case SPop is
-          when "00" => SP <= SP; -- SPをそのまま
-          when "01" => SP <= SP + 1; -- SPをインクリメント
-          when "10" => SP <= SP - 1; -- SPをデクリメント
-          when "11" => SP <= SP; -- SPをそのまま
-          when others => null;        -- その他の場合は無処理
+          when others => null;                 -- その他の場合は無処理
         end case;
       end if;
+
+      -- if (GRSel="001" or GRSel="010" or GRSel="011" or GRSel="100") then --レジスタが選択されてたら
+      --   case GRSel is
+      --     when "001" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
+      --     when "010" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
+      --     when "011" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
+      --     when "100" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
+      --     when others => null;        -- その他の場合は無処理
+      --   end case;
+      -- -- 先にSPのif文にした方がいい？SPで計算があった時はSPに格納するようにする
+      -- else
+      --   --SP <= Mux5_out;
+      --   case SPop is
+      --     when "00" => SP <= SP; -- SPをそのまま
+      --     when "01" => SP <= SP + 1; -- SPをインクリメント
+      --     when "10" => SP <= SP - 1; -- SPをデクリメント
+      --     when "11" => SP <= SP; -- SPをそのまま
+      --     when others => null;        -- その他の場合は無処理
+      --   end case;
+      -- end if;
 
       if (DbgWe='1') then
         case DbgAin is
