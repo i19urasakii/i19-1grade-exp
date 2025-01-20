@@ -148,8 +148,7 @@ begin
              "000";       
 
   -- Mux5: スタックポインタの選択信号
-  SPSel <= "01" when (((DecSt(3)='1' and OP/="0101") or DecSt(4)='1' or DecSt(11)='1') and Rd="11") or
-                     (DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1') else -- SP:DataALU 汎用レジスタ
+  SPSel <= "01" when ((DecSt(3)='1' and OP/="0101") or DecSt(4)='1' or DecSt(11)='1') and Rd="11"  else -- SP:DataALU 汎用レジスタ
            "10" when DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1' else   -- SP:SPop
            "00";
   -- SPの演算
