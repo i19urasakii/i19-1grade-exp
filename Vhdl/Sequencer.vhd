@@ -131,8 +131,8 @@ begin
   -- Mux0: プログラムカウンタの選択信号
            -- DecSt(7)='1' or DecSt(9)='1' or DecSt(10)='1' or DecSt(12)='1'
            -- (Jz='1' or Jc='1' or Jm='1')
-  PCSel <= "01" when ((DecSt(6)='1' and JmpCnd='1' and  (Rx="01" or Rx="10") ) or (DecSt(8)='1' and (Rx="01" or Rx="10"))) else  -- AddrADDの出力.  :jmp(成立時)とCALL のインデクスドモード, 
-           "10" when ((DecSt(6)='1' and JmpCnd='1' and  Rx="00" ) or (DecSt(8)='1' and Rx="00") or DecSt(12)='1') else   --Din            :jmp(成立時)とCALL のダイレクトモード, RET
+  PCSel <= "01" when ((DecSt(6)='1' and JmpCnd='1') or (DecSt(8)='1' and (Rx="01" or Rx="10"))) else  -- AddrADDの出力.  :jmp(成立時)とCALL のインデクスドモード, 
+           "10" when ((DecSt(8)='1' and Rx="00") or DecSt(12)='1') else   --Din            :jmp(成立時)とCALL のダイレクトモード, RET
            "11" when ((DecSt(0)='1' and Stop='0') or DecSt(3)='1' or DecSt(5)='1' or (DecSt(6)='1' and JmpCnd='0')) else -- PC+1　　　　　:jmp(不成立)
            "00";
   -- Mux1: データバス入力の選択信号
@@ -140,7 +140,7 @@ begin
              "10" when DecSt(7)='1' else -- 2:PC+1
              "00";
   -- Mux2: アドレスバスの選択信号
-  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' or DecSt(8) or DecSt(12) else -- 1:PC   :CALL,RETの時、飛ぶ先のPCの値をアドレスバスに出力
+  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' or DecSt(8)='1' or DecSt(12)='1' else -- 1:PC   :CALL,RETの時、飛ぶ先のPCの値をアドレスバスに出力
              "010" when (DecSt(6)='1' and JmpCnd='0')  else                           -- 2:PC+1, jmp(不成立)
              "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and JmpCnd='1') else -- 3:AddrADD, jmp(成立時)
              "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP
