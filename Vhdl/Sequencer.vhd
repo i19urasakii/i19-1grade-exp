@@ -140,7 +140,7 @@ begin
              "10" when DecSt(7)='1' else -- 2:PC+1
              "00";
   -- Mux2: アドレスバスの選択信号
-  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' else -- 1:PC
+  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' or DecSt(8) or DecSt(12) else -- 1:PC   :CALL,RETの時、飛ぶ先のPCの値をアドレスバスに出力
              "010" when (DecSt(6)='1' and JmpCnd='0')  else                           -- 2:PC+1, jmp(不成立)
              "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and JmpCnd='1') else -- 3:AddrADD, jmp(成立時)
              "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP
