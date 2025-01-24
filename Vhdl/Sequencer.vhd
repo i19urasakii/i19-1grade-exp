@@ -140,11 +140,11 @@ begin
              "10" when DecSt(7)='1' else -- 2:PC+1
              "00";
   -- Mux2: アドレスバスの選択信号
-  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' or DecSt(8)='1' or DecSt(12)='1' else -- 1:PC   :CALL,RETの時、飛ぶ先のPCの値をアドレスバスに出力
-             "010" when (DecSt(6)='1' and JmpCnd='0')  else                           -- 2:PC+1, jmp(不成立)
-             "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and JmpCnd='1') else -- 3:AddrADD, jmp(成立時)
-             "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP
-             "101" when DecSt(7)='1' or DecSt(9)='1' else -- 5:SP +/-
+  AddrSel <= "001" when DecSt(0)='1' or DecSt(1)='1' or DecSt(8)='1' else -- 1:PC   :CALL 飛ぶ先のPCの値をアドレスバスに出力
+             "010" when (DecSt(6)='1' and JmpCnd='0')  else                           -- 2:PC+1  :jmp(不成立)
+             "011" when DecSt(2)='1' or DecSt(5)='1' or (DecSt(6)='1' and JmpCnd='1') else -- 3:AddrADD   :jmp(成立時)
+             "100" when DecSt(10)='1' or DecSt(12)='1' else -- 4:SP :RETの時, CALLした後のSPの値をとる
+             "101" when DecSt(7)='1' or DecSt(9)='1' else -- 5:SP   :SP+/-
              "000";       
 
   -- Mux5: スタックポインタの選択信号

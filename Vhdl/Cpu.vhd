@@ -177,16 +177,17 @@ begin
   -- PCに格納するデータを選択
   Mux0_out <= AddrADD_out when PCSel="01" else -- 0
               Din when PCSel="10" else         -- 1
-              PC+'1' when PCSel="11";          -- 2                 
+              (PC + '1') when PCSel="11";          -- 2                 
   -- Doutに格納するデータを選択
   Mux1_out <= Mux4_out when DoutSel="01" else --0
-              PC+'1' when DoutSel="10";       -- 1          
+              (PC + '1') when DoutSel="10";       -- 1          
   -- Addrに格納するデータを選択
   Mux2_out <= PC when AddrSel="001" else           -- 0
-              PC+'1' when AddrSel="010" else       -- 1
+              (PC + '1') when AddrSel="010" else       -- 1
               AddrADD_out when AddrSel="011" else  -- 2
               SP when AddrSel="100" else           -- 3
-              SP+'1';                              -- 4
+              (SP + '1') when AddrSel="101" and (SPop = "01" and SPSel = "10") else
+              (SP - '1') when AddrSel="101" and (SPop = "10" and SPSel = "10");     -- 4
   -- インデクスドモード：レジスタ選択
   Mux3_out <= "00000000" when Rx="00" else -- 0
               G1 when Rx="01" else -- 1
@@ -198,8 +199,8 @@ begin
               G2 when Rd="10" else -- 2
               SP;                  -- 3
   -- SPに格納するデータを選択
-  Mux5_out <= (SP + 1) when (SPop = "01" and SPSel = "10") else
-              (SP - 1) when (SPop = "10" and SPSel = "10") else
+  Mux5_out <= (SP + '1') when (SPop = "01" and SPSel = "10") else
+              (SP - '1') when (SPop = "10" and SPSel = "10") else
               Alu(7 downto 0) when SPSel = "01" else
               SP;
 
