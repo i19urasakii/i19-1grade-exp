@@ -322,7 +322,8 @@ begin
         FLG(2) <= Alu(8);                -- Carry
         FLG(1) <= Alu(7);                -- Sign
         FLG(0) <= Zero;                  -- Zero
-      elsif (DbgWe='1' and DbgAin="110" and FLLd='1') then
+      -- elsif (DbgWe='1' and DbgAin="110" and FLLd='1') then
+      elsif (DbgWe='1' and DbgAin="110") then
         FLG <= DbgDin(2 downto 0); -- デバッグ入力でフラグを設定
       end if;
     end if;
