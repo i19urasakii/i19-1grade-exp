@@ -278,26 +278,6 @@ begin
         end case;
       end if;
 
-      -- if (GRSel="001" or GRSel="010" or GRSel="011" or GRSel="100") then --レジスタが選択されてたら
-      --   case GRSel is
-      --     when "001" => G0 <= Alu(7 downto 0); -- G0にALU結果を格納
-      --     when "010" => G1 <= Alu(7 downto 0); -- G1にALU結果を格納
-      --     when "011" => G2 <= Alu(7 downto 0); -- G2にALU結果を格納
-      --     when "100" => SP <= Alu(7 downto 0); -- SPにALU結果を格納
-      --     when others => null;        -- その他の場合は無処理
-      --   end case;
-      -- -- 先にSPのif文にした方がいい？SPで計算があった時はSPに格納するようにする
-      -- else
-      --   --SP <= Mux5_out;
-      --   case SPop is
-      --     when "00" => SP <= SP; -- SPをそのまま
-      --     when "01" => SP <= SP + 1; -- SPをインクリメント
-      --     when "10" => SP <= SP - 1; -- SPをデクリメント
-      --     when "11" => SP <= SP; -- SPをそのまま
-      --     when others => null;        -- その他の場合は無処理
-      --   end case;
-      -- end if;
-
       if (DbgWe='1') then
         case DbgAin is
           when "000" => G0 <= DbgDin; -- デバッグ入力でG0を設定
@@ -310,6 +290,7 @@ begin
     end if;
   end process;
 
+  
 
   -- フラグの制御(追記：FLLd=1の時にフラグを設定)
   process(Clk, Reset)
@@ -329,15 +310,6 @@ begin
   end process;
 
 
-  
--- CPU レジスタの制御(そのまま)
-  -- RegRd <= G0 when Rd="00" else  -- G0レジスタを選択
-  --          G1 when Rd="01" else  -- G1レジスタを選択
-  --          G2 when Rd="10" else  -- G2レジスタを選択
-  --          SP;                   -- その他の場合スタックポインタを選択
-  -- RegRx <= G1 when Rx="01" else  -- G1レジスタを選択
-  --          G2 when Rx="10" else  -- G2レジスタを選択
-  --          "00000000";           -- その他の場合0を選択
   
 -- デバッグ用のコンソール接続
   DbgDout <= G0 when DbgAin="000" else  -- G0出力
