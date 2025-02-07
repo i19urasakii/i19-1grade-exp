@@ -166,55 +166,50 @@ begin
 -- BUS
   Addr <= Mux2_out; -- メモリアドレス選択
   Dout <= Mux1_out; -- データ
-
-  -- ???
-  --EA <= DR + RegRx; -- 有効アドレス計算 (データレジスタ + 選択されたレジスタ)
   
 
 
 -- MUXの動作定義
 -- MUX0(PCSel)
   -- PCに格納するデータを選択
-  Mux0_out <= AddrADD_out when PCSel="01" else -- 0
-              Din when PCSel="10" else         -- 1
-              (PC + '1') when PCSel="11" else  -- 2 
-              "00000000";                          
+  Mux0_out <= AddrADD_out when PCSel="01" else -- 1.AddrADDの出力
+              Din when PCSel="10" else         -- 2.Din
+              (PC + '1') when PCSel="11";      -- 3.PC+1     
+
   -- Doutに格納するデータを選択
-  Mux1_out <= Mux4_out when DoutSel="01" else --0
-              (PC + '1') when DoutSel="10" else -- 1
-              "00000000";                 
+  Mux1_out <= Mux4_out when DoutSel="01" else   -- 1:Mux4out[GR]
+              (PC + '1') when DoutSel="10";     -- 2:PC+1
+
   -- Addrに格納するデータを選択
-  Mux2_out <= PC when AddrSel="001" else           -- 0
-              (PC + '1') when AddrSel="010" else       -- 1
-              AddrADD_out when AddrSel="011" else  -- 2
-              SP when AddrSel="100" else           -- 3
-              (SP + '1') when AddrSel="101" and (SPop = "01" and SPSel = "10") else  -- 4
-              (SP - '1') when AddrSel="101" and (SPop = "10" and SPSel = "10") else  
-              "00000000";    
+  Mux2_out <= PC when AddrSel="001" else            -- 1:PC
+              (PC + '1') when AddrSel="010" else    -- 2:PC+1
+              AddrADD_out when AddrSel="011" else   -- 3:AddrADD
+              SP when AddrSel="100" else            -- 4:SP 
+              (SP + '1') when AddrSel="101" and (SPop = "01" and SPSel = "10") else  -- 5:SP+/-
+              (SP - '1') when AddrSel="101" and (SPop = "10" and SPSel = "10"); 
+
   -- インデクスドモード：レジスタ選択
-  Mux3_out <= "00000000" when Rx="00" else -- 0
-              G1 when Rx="01" else -- 1
-              G2 when Rx="10" else -- 2
-              "00000000";          -- 3
+  Mux3_out <= "00000000" when Rx="00" else -- 1.#0
+              G1 when Rx="01" else         -- 2.G1
+              G2 when Rx="10" else         -- 3.G2
+              "00000000";                  -- 4.#0
   -- レジスタ選択
-  Mux4_out <= G0 when Rd="00" else -- 0
-              G1 when Rd="01" else -- 1
-              G2 when Rd="10" else -- 2
-              SP;                  -- 3
+  Mux4_out <= G0 when Rd="00" else -- 1.G0
+              G1 when Rd="01" else -- 2.G1
+              G2 when Rd="10" else -- 3.G2
+              SP;                  -- 4.SP
+
   -- SPに格納するデータを選択
-  Mux5_out <= (SP + '1') when (SPop = "01" and SPSel = "10") else
-              (SP - '1') when (SPop = "10" and SPSel = "10") else
-              Alu(7 downto 0) when SPSel = "01" else
-              SP;
+  Mux5_out <= Alu(7 downto 0) when SPSel = "01" else                -- 1.SP :DataALU 汎用レジスタの場合
+              (SP + '1') when (SPop = "01" and SPSel = "10") else   -- 2.SP :SPopの計算した値
+              (SP - '1') when (SPop = "10" and SPSel = "10") ;
 
 
-  -- レジスタ選択????
-  --GRSel <= Rd
+
+
 
 -- AddrADD BUS
   AddrADD_out <= DR + Mux3_out;
-  --DataALU_out <= Alu(8 downto 1);
-
 
 -- DataALU BUS
   -- ALU (演算論理ユニット) の動作定義
